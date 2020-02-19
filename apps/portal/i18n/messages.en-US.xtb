@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="en-us">
+  <translation id="loading">Loading...</translation>
+  <translation id="no">
+      No
+    </translation>
+  <translation id="yes">
+      Yes
+    </translation>
+  <translation id="discardUnsavedChanges">Discard all unsaved changes?</translation>
+  <translation id="unsavedChanges">Unsaved changes</translation>
+  <translation id="firstname">First name</translation>
+  <translation id="lastname">Last name</translation>
+  <translation id="email">Email</translation>
+  <translation id="passwordMinLength">
+            Password must be at least 8 characters long
+          </translation>
+  <translation id="passwordLowerCase">
+            Password requires at least one lower case letter
+          </translation>
+  <translation id="passwordUpperCase">
+            Password requires at least one upper case letter
+          </translation>
+  <translation id="passwordNumbers">
+            Password requires at least one number
+          </translation>
+  <translation id="passwordSpecialCharacter">
+            Password requires at least one special character
+          </translation>
+  <translation id="passwordNotEqual">
+            Passwords have to match
+          </translation>
+  <translation id="startPortal">Starting Portal</translation>
+  <translation id="loginInProgress">You are being logged in...</translation>
+  <translation id="changeAccount">
+  <ph name="START_PARAGRAPH"><ex>&lt;p&gt;</ex>&lt;p&gt;</ph>Change account<ph name="CLOSE_PARAGRAPH"><ex>&lt;/p&gt;</ex>&lt;/p&gt;</ph>
+</translation>
+  <translation id="noResult">No result for your search</translation>
+  <translation id="changePassword">Change password</translation>
+  <translation id="currentPassword">Current password</translation>
+  <translation id="newPassword">New password</translation>
+  <translation id="confirmNewPassword">Confirm password</translation>
+  <translation id="cancel">Cancel</translation>
+  <translation id="save">
+      Save
+    </translation>
+  <translation id="home">Home</translation>
+  <translation id="schedule">Schedule</translation>
+  <translation id="tasks">Tasks</translation>
+  <translation id="places">Places</translation>
+  <translation id="settings">Settings</translation>
+  <translation id="userManagement">User Management</translation>
+  <translation id="changeProfilePicture">Change profile picture</translation>
+  <translation id="showPicture">Show picture</translation>
+  <translation id="recordPicture">Record picture</translation>
+  <translation id="uploadPicture">Upload picture</translation>
+  <translation id="deletePicture">Delete picture</translation>
+  <translation id="editUserProfile">Edit user profile</translation>
+  <translation id="phone">Phone number</translation>
+  <translation id="birthDate">Birth date</translation>
+  <translation id="street">Street</translation>
+  <translation id="postCode">Zip code</translation>
+  <translation id="place">Town</translation>
+  <translation id="profile">Profile</translation>
+  <translation id="logout">Log out</translation>
+  <translation id="accounts">Accounts</translation>
+  <translation id="takePicture">Take Picture</translation>
+  <translation id="checkingCamera">Checking Camera...</translation>
+  <translation id="crop">Crop</translation>
+  <translation id="imageSaved">Image saved</translation>
+  <translation id="close">Close</translation>
+  <translation id="changePicture">Change Picture</translation>
+  <translation id="none">None</translation>
+  <translation id="delete">Delete</translation>
+  <translation id="confirmDeleteTaskTitle">Delete task</translation>
+  <translation id="confirmDeleteTask">Are you sure that you want to delete this task?</translation>
+  <translation id="task">Task</translation>
+  <translation id="pictureIsRequired">*Picture is required</translation>
+  <translation id="taskDetails">Task Details</translation>
+  <translation id="name">Name</translation>
+  <translation id="defaultDuration">Default Duration</translation>
+  <translation id="steps">Steps</translation>
+  <translation id="addStep">Add Step</translation>
+  <translation id="emergencyContacts">Emergency contacts</translation>
+  <translation id="useTaskContacts">
+              Use other contacts than specified in settings
+            </translation>
+  <translation id="contact1">Contact one</translation>
+  <translation id="contact2">Contact two</translation>
+  <translation id="chooseThisLocation">Choose this location?</translation>
+  <translation id="confirmDeletePlaceTitle">Delete place</translation>
+  <translation id="confirmDeletePlace">Are you sure that you want to delete this place?</translation>
+  <translation id="placeDetails">Place Details</translation>
+  <translation id="placeSelection">Place selection</translation>
+  <translation id="centerOnSelection">Center on selection</translation>
+  <translation id="showCurrentLocation">Show current location</translation>
+  <translation id="newUser">New user</translation>
+  <translation id="inviteOnCreation">Send invitation for login</translation>
+  <translation id="create">
+      Create
+    </translation>
+  <translation id="editUser">Edit user</translation>
+  <translation id="user">User</translation>
+  <translation id="deactivate">Deactivate</translation>
+  <translation id="activate">Activate</translation>
+  <translation id="enabled">Enabled</translation>
+  <translation id="disabled">
+              Disabled
+            </translation>
+  <translation id="lastLogin">last logged in at</translation>
+  <translation id="searchUser">Search user</translation>
+  <translation id="notInvited">not invited</translation>
+  <translation id="invited">invited</translation>
+  <translation id="expired">expired</translation>
+  <translation id="declined">declined</translation>
+  <translation id="accepted">accepted</translation>
+  <translation id="status">Status</translation>
+  <translation id="lastLoginTitle">Last Login</translation>
+  <translation id="edit">Edit</translation>
+  <translation id="sendInvitation">Send invitation</translation>
+  <translation id="reinvite">Reinvite</translation>
+  <translation id="oneWeekEarlier">1 week earlier</translation>
+  <translation id="oneWeekLater">1 week later</translation>
+  <translation id="createTemplate">Create template based on this day</translation>
+  <translation id="templateName">Template name</translation>
+  <translation id="fixErrorsOutsideOfDialog">
+        Please adjust the day schedule to fix the issues and try again.
+      </translation>
+  <translation id="scheduleDay">Schedule Day</translation>
+  <translation id="createDayTemplate">Create day template</translation>
+  <translation id="details">Details</translation>
+  <translation id="start">Start</translation>
+  <translation id="end">End</translation>
+  <translation id="overlappingTasks">Overlapping Tasks</translation>
+  <translation id="startAfterEnd">Start is after end</translation>
+  <translation id="remove">
+      Remove task
+    </translation>
+  <translation id="apply">
+      Apply
+    </translation>
+  <translation id="add">Add</translation>
+  <translation id="confirmDeleteTemplateTitle">Delete template</translation>
+  <translation id="confirmDeleteTemplate">Are you sure that you want to delete this template?</translation>
+  <translation id="dayName">Day name</translation>
+  <translation id="navigate">Navigate</translation>
+  <translation id="navigateSettingsDesc">Configure the static place tiles shown on the navigate page in the app</translation>
+  <translation id="place1">Lower left place tile</translation>
+  <translation id="place2">Lower right place tile</translation>
+  <translation id="emergencyHelpTexts">Emergency help texts</translation>
+  <translation id="emergencyHelpTextsDesc">Configure the help texts shown on the emergency screen</translation>
+  <translation id="emergencyLinkHint">
+            To add a link to the help text, use [text](link).
+            Example: [google](https://google.com).
+          </translation>
+  <translation id="bad">Bad</translation>
+  <translation id="preview">Preview</translation>
+  <translation id="improving">Improving</translation>
+  <translation id="emergencyContactsDesc">Configure who is notified about emergencies</translation>
+  <translation id="gallery">Gallery</translation>
+  <translation id="editPermissionGroup">Permissions</translation>
+  <translation id="searchPermissionGroup">Search permission</translation>
+  <translation id="earliestEditableTime">A must be at least 5 minutes in the future to be edited</translation>
+  <translation id="confirmDeletePictureTitle">Delete picture</translation>
+  <translation id="confirmDeletePicture">Are you sure that you want to delete this picture?</translation>
+  <translation id="noDescription">No description</translation>
+  <translation id="picture">Picture</translation>
+  <translation id="pictureProperties">Picture Properties</translation>
+  <translation id="description">Description</translation>
+  <translation id="pictureTags">Tags</translation>
+  <translation id="addTag">Add Tag</translation>
+  <translation id="tagConfidence">AI Confidence:</translation>
+  <translation id="manualEdit">Manual edit</translation>
+  <translation id="resendInvitation">Resend invitation</translation>
+</translationbundle>

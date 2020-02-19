@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-content fxLayoutAlign="start start">
+    <mat-form-field [formGroup]="stepFormGroup" class="w-350">
+      <textarea
+        matInput
+        formControlName="text"
+        name="text"
+        placeholder="Text"
+        required
+        rows="4"></textarea>
+    </mat-form-field>
+
+    <div class="task-step-menu-button">
+      <button mat-icon-button [matMenuTriggerFor]="taskStepMenu" xpdoClickStopPropagation>
+        <mat-icon svgIcon="fas:ellipsis-v"></mat-icon>
+      </button>
+    </div>
+
+    <mat-menu #taskStepMenu>
+      <button mat-menu-item (click)="delete.next()">
+        <mat-icon svgIcon="far:trash-alt"></mat-icon>
+        <span i18n="@@delete">Delete</span>
+      </button>
+    </mat-menu>
+  </mat-card-content>
+</mat-card>

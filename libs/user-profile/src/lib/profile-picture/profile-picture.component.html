@@ -1,0 +1,26 @@
+<div class="profile-picture-container" *ngIf="(profile$ | async) as profile">
+  <img class="picture" [src]="profile?.pictureUrl">
+  <button color="secondary" fxHide fxShow.lt-md mat-mini-fab class="camera-button" (click)="fileInput.click()">
+    <mat-icon color="primary" svgIcon="fas:camera"></mat-icon>
+  </button>
+  <div fxHide fxShow.gt-sm class="overlay" fxLayoutAlign="center center" fxLayout="column" [matMenuTriggerFor]="menu" xpdoContextMenu>
+    <mat-icon svgIcon="fas:camera"></mat-icon>
+    <p class="hint" i18n="@@changeProfilePicture">Change profile picture</p>
+  </div>
+  <div fxHide fxShow.lt-md (click)="openProfilePictureDialog()" class="mobile-overlay"></div>
+  <mat-menu #menu>
+    <button mat-menu-item (click)="openProfilePictureDialog()">
+      <p [style.margin.px]="0" i18n="@@showPicture">Show picture</p>
+    </button>
+    <button mat-menu-item (click)="openCaptureImageDialog()">
+      <p [style.margin.px]="0" i18n="@@recordPicture">Record picture</p>
+    </button>
+    <button mat-menu-item (click)="fileInput.click()">
+      <p [style.margin.px]="0" i18n="@@uploadPicture">Upload picture</p>
+    </button>
+    <button mat-menu-item (click)="deleteProfilePicture()">
+      <p [style.margin.px]="0" i18n="@@deletePicture">Delete picture</p>
+    </button>
+  </mat-menu>
+</div>
+<input type="file" accept="image/jpeg,image/x-png" class="file-input" #fileInput (change)="onImageChange($event)" />

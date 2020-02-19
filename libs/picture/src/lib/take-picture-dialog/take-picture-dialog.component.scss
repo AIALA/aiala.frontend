@@ -1,0 +1,33 @@
+:host {
+  #canvas {
+    height: 480px;
+    width: 640px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .step-container {
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column !important;
+
+    > *:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  button svg {
+    margin-right: 10px;
+  }
+
+  button:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+::ng-deep mat-step-header {
+  pointer-events: none !important;
+}

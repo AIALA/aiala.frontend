@@ -1,0 +1,78 @@
+<mat-card>
+  <mat-card-title i18n="@@invitationTitle">Invitation</mat-card-title>
+  <mat-card-content>
+    <div
+      class="inviter"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+      fxLayout="row"
+      fxLayout.lt-sm="column"
+    >
+      <div class="image">
+        <div
+          class="inviter-image"
+          *ngIf="!(invitation$ | async)?.inviter"
+        ></div>
+        <img
+          class="inviter-image"
+          *ngIf="(invitation$ | async)?.inviter.pictureUrl as pictureUrl"
+          [src]="pictureUrl"
+        />
+      </div>
+      <div class="chatbox" fxLayout="column">
+        <p class="name" *ngIf="(invitation$ | async) as invitation">
+          {{ invitation.inviter.firstname }} {{ invitation.inviter.lastname }} -
+          {{ invitation.created | date: 'shortDate' }}
+        </p>
+        <p class="message" *ngIf="(invitation$ | async) as invitation">
+          <b
+            ><span i18n="@@receiver">To</span>:
+            {{ invitation.invitee.firstname }}
+            {{ invitation.invitee.lastname }} ({{
+              invitation.invitee.email
+            }})</b
+          ><br />
+          <span>{{ invitation.message }}</span>
+          <span
+            *ngIf="(invitation$ | async) && !(invitation$ | async).message"
+            i18n="@@defaultInvitationMessage"
+          >
+            Would you like to accept the invitation?
+          </span>
+        </p>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="buttons" fxLayoutAlign="end" fxLayoutGap="5px">
+    <button
+      mat-button
+      color="warn"
+      i18n="@@decline"
+      (click)="decline()"
+      [disabled]="isDeclined$ | async"
+      [xpdoProgressSpinner]="isDeclining$ | async"
+    >
+      Decline
+    </button>
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      i18n="@@accept"
+      [disabled]="isDeclined$ | async"
+    >
+      Accept
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="register()" i18n="@@newAccount">
+        New account
+      </button>
+      <button
+        mat-menu-item
+        i18n="@@existingAccount"
+        (click)="acceptRequest('/invitation/accept')"
+      >
+        Existing account
+      </button>
+    </mat-menu>
+  </mat-card-actions>
+</mat-card>

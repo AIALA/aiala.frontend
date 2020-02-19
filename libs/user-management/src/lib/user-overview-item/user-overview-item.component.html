@@ -1,0 +1,47 @@
+<mat-card class="mat-elevation-z1" [routerLink]="['../' + user.id]">
+  <div fxLayout="row" fxLayoutAlign="start start" class="user-header">
+    <div fxLayout="column" fxLayoutAlign="center center" class="user-avatar-wrapper">
+      <msft-aiala-thumbnail class="user-avatar" [source]="user.pictureUrl" [pictureType]="pictureType"></msft-aiala-thumbnail>
+      <ng-container [ngSwitch]="user.enabled">
+        <p class="user-status enabled" *ngSwitchCase="true" i18n="@@enabled">Enabled</p>
+        <p class="user-status disabled" *ngSwitchCase="false" i18n="@@disabled">Disabled</p>
+      </ng-container>
+    </div>
+    <div class="user-header-information">
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <h3 class="user-name">
+          {{ user.firstname }} {{ user.lastname }}
+        </h3>
+        <msft-aiala-user-overview-menu [user]="user"></msft-aiala-user-overview-menu>
+      </div>
+      <div class="user-detail-information">
+        <p>{{ user.email }}</p>
+        <p class="invitation-status" [ngSwitch]="user.invitationStatus">
+          <span *ngSwitchCase="invitationStatus.NotInvited" i18n="@@notInvited">not invited</span>
+          <span *ngSwitchCase="invitationStatus.Invited" i18n="@@invited">invited</span>
+          <span *ngSwitchCase="invitationStatus.Expired" i18n="@@expired">expired</span>
+          <span *ngSwitchCase="invitationStatus.Declined" i18n="@@declined">declined</span>
+          <span *ngSwitchCase="invitationStatus.Accepted" i18n="@@accepted">accepted</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card-content fxLayout="column" fxLayoutAlign="start start">
+    <div fxLayout="column" fxLayoutAlign="space-between start" class="user-body" fxLayoutGap="10px">
+      <div fxLayoutAlign="start start" fxLayout="column" *ngIf="user.lastLogin">
+        <p class="user-last-login">
+          <span i18n="@@lastLogin">last logged in at</span> {{ user.lastLogin | date:'short' }}
+        </p>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+        <p *ngFor="let permission of user.permissionGroups" class="user-status permission">{{ permission }}</p>
+        <p
+          *ngIf="user.permissionGroups && user.permissionGroups.length === 0"
+          class="user-status emergency-contact"
+          i18n="@@emergencyContact"
+        >Emergency Contact (no login allowed)</p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

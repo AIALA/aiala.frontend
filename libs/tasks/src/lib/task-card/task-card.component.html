@@ -1,0 +1,15 @@
+<mat-card class="mat-elevation-z1">
+  <div fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxLayout="row" fxLayoutAlign="start start" fxFlex="0 0 auto">
+      <msft-aiala-thumbnail [source]="task.picture?.pictureUrl" [pictureType]="pictureType"></msft-aiala-thumbnail>
+    </div>
+    <div fxLayoutAlign="start start" fxFlex="1 1 auto">
+      <span class="task-name">{{ task.name }}</span>
+    </div>
+    <div fxLayoutAlign="start end" fxFlex="0 0 auto" *ngIf="menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu" xpdoClickStopPropagation>
+        <mat-icon svgIcon="fas:ellipsis-v"></mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,37 @@
+<xpdo-sidenav-layout #sidenav class="second-level-sidenav" [ngClass]="{'sidenav-mobile': (isMobile$ | async)}">
+  <mat-toolbar xpdo-toolbar color="primary" xpdoSidenavToolbar>
+    <div fxFlex i18n="@@reports">Reports</div>
+
+
+  </mat-toolbar>
+  <div xpdo-sidenav>
+    <xpdo-sidenav-layout-group>
+      <form [formGroup]="unitForm" xpdoSidenavLayoutItem mat-list-item class="unit-selector-form">
+        <mat-form-field>
+          <mat-select
+            class="unit-selector"
+            formControlName="unit"
+            i18n-placeholder="@@unit"
+            placeholder="Unit"
+          >
+            <mat-option i18n="@@task" [value]="units.TaskName">Task</mat-option>
+            <mat-option i18n="@@day" [value]="units.Date">Day</mat-option>
+            <mat-option i18n="@@dayOfWeek" [value]="units.DayOfWeek">Day of week</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </xpdo-sidenav-layout-group>
+    <xpdo-sidenav-layout-group>
+      <a xpdoSidenavLayoutItem mat-list-item [ngClass]="{'active': selectedIndex === 0}" (click)="select(0)">Delayed tasks by unit</a>
+      <a xpdoSidenavLayoutItem mat-list-item [ngClass]="{'active': selectedIndex === 1}" (click)="select(1)">Delay % of tasks by unit</a>
+      <a xpdoSidenavLayoutItem mat-list-item [ngClass]="{'active': selectedIndex === 2}" (click)="select(2)">Task feedback by unit</a>
+      <a xpdoSidenavLayoutItem mat-list-item [ngClass]="{'active': selectedIndex === 3}" (click)="select(3)">Emergencies count by unit</a>
+      <a xpdoSidenavLayoutItem mat-list-item [ngClass]="{'active': selectedIndex === 4}" (click)="select(4)">Number of steps vs task duration</a>
+      <a xpdoSidenavLayoutItem mat-list-item [ngClass]="{'active': selectedIndex === 5}" (click)="select(5)">Custom chart (Advanced)</a>
+    </xpdo-sidenav-layout-group>
+  </div>
+
+  <msft-aiala-report
+    [config$]="config$"
+  ></msft-aiala-report>
+</xpdo-sidenav-layout>

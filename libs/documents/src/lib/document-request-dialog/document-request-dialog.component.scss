@@ -1,0 +1,10 @@
+:host {
+  .container {
+    padding: 20px;
+    height: calc(100% - 56px);
+
+    .content {
+      width: 100%;
+    }
+  }
+}

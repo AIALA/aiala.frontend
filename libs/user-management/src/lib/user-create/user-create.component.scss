@@ -1,0 +1,19 @@
+:host() {
+  .container {
+    height: calc(100% - 56px);
+    padding: 16px;
+    .content {
+      min-height: calc(100% - 56px);
+      width: 100%;
+
+      mat-form-field, mat-checkbox {
+        width: 100%;
+      }
+    }
+
+    .action-buttons {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+}

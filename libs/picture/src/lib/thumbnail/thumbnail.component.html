@@ -1,0 +1,16 @@
+<div class="thumbnail-container clickable-container" [matMenuTriggerFor]="thumbnailMenu" xpdoContextMenu>
+    <img class="thumbnail-img" [src]="(sanitizedSrc$ | async)" alt="Picture">
+    <!-- <div class="edit-overlay" *ngIf="editable">
+      <mat-icon svgIcon="far:pencil" inline></mat-icon>
+    </div> -->
+    <mat-icon class="edit-overlay" *ngIf="editable" svgIcon="far:pencil" inline></mat-icon>
+</div>
+
+<mat-menu #thumbnailMenu="matMenu" xPosition="before">
+  <button mat-menu-item i18n="@@viewPicture" (click)="view()" *ngIf="!isDefaultImage">View picture</button>
+  <ng-container *ngIf="editable">
+    <button mat-menu-item i18n="@@takePicture" (click)="edit(dialogTypes.Camera)">Take picture</button>
+    <button mat-menu-item i18n="@@uploadPicture" (click)="edit(dialogTypes.Upload)">Upload picture</button>
+    <button mat-menu-item i18n="@@deletePicture" (click)="delete()">Delete picture</button>
+  </ng-container>
+</mat-menu>

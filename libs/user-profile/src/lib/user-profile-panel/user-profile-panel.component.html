@@ -1,0 +1,19 @@
+<msft-aiala-user-profile-menu
+  [profile]="profile$ | async"
+  [selectedAccount]="selectedAccount$ | async"
+  *ngIf="!(isMobile$ | async)"
+  (changeAccount)="changeAccount($event)"
+  (logout)="logout()"
+  (openDialog)="onOpenDialog($event)"
+>
+</msft-aiala-user-profile-menu>
+
+<msft-aiala-user-profile-expandable
+  [profile]="profile$ | async"
+  [selectedAccount]="selectedAccount$ | async"
+  *ngIf="(isMobile$ | async)"
+  (changeAccount)="changeAccount($event)"
+  (logout)="logout()"
+  (openDialog)="onOpenDialog($event)"
+>
+</msft-aiala-user-profile-expandable>

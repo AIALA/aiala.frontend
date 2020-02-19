@@ -1,0 +1,17 @@
+:host() {
+  .permission-group-container {
+    height: calc(100% - 56px); // substract toolbar height;
+
+    mat-selection-list {
+      padding: 11px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .actions {
+      padding: 16px;
+    }
+  }
+}

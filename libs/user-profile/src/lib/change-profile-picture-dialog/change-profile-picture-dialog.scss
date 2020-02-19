@@ -1,0 +1,19 @@
+:host() {
+  .container {
+    height: calc(100% - 56px);
+    .crop-area {
+      height: 400px;
+      width: 100%;
+
+      xpdo-cropper {
+        height: 100%;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    .action-buttons {
+      padding: 20px;
+    }
+  }
+}

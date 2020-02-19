@@ -1,0 +1,16 @@
+<msft-aiala-loading-spinner class="w-100p" *ngIf="(loading$ | async)"></msft-aiala-loading-spinner>
+
+<div
+  [style.display]="(loading$ | async) ? 'hidden' : 'visible'"
+  id="table"
+  fxFlex="1 1 100%"
+></div>
+
+<div *ngIf="editMode" [style.paddingTop.px]="15" [style.paddingLeft.px]="5">
+  <h3 i18n="@@reportConfig">Report Config</h3>
+  <p i18n="@@reportConfigExplainer">Copy this config somewhere to set it aside. Apply this config at a later time by pasting it into the textarea and hitting apply.</p>
+  <div>
+      <button mat-raised-button i18n="@@apply" (click)="applyConfig()" [style.marginBottom.px]="15">Apply</button>
+  </div>
+  <textarea [(ngModel)]="configText" rows="20" class="w-300 code"></textarea>
+</div>

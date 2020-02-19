@@ -1,0 +1,21 @@
+<div
+  fxLayout="column"
+  fxLayout.gt-lg="row wrap"
+  fxLayoutGap="10px"
+  fxLayoutAlign="flex-start"
+>
+  <msft-aiala-task-card
+    *ngFor="let task of tasks$ | async"
+    [task]="task"
+    [menu]="editableConfig?.isPast === false ? taskMenu : null"
+    fxFlex.gt-lg="0 0 calc(33% - 10px)"
+    fxFlex="0 0 100%"
+  >
+    <mat-menu #taskMenu>
+      <button mat-menu-item (click)="addTask.next(task)">
+        <mat-icon svgIcon="far:plus"></mat-icon>
+        <span i18n="@@add">Add</span>
+      </button>
+    </mat-menu>
+  </msft-aiala-task-card>
+</div>

@@ -1,0 +1,21 @@
+@import './libs/styles/variables';
+
+:host {
+  .container {
+    padding: 10px;
+
+    .editor-heading .editor-heading-secondary {
+      color: $gray-100;
+    }
+
+    mat-form-field,
+    msft-aiala-place-selector,
+    msft-aiala-user-selector {
+      display: block;
+    }
+
+    mat-panel-description {
+      justify-content: flex-end;
+    }
+  }
+}

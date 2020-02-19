@@ -1,0 +1,45 @@
+@import './libs/styles/variables';
+
+:host {
+  display: block;
+  position: relative;
+
+  .thumbnail-container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .fallback-container,
+  .thumbnail-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+
+    background: #bdbdbd;
+    color: white;
+  }
+
+  .fallback-container .mat-icon {
+    width: 50%;
+    max-width: 40px;
+    height: auto;
+  }
+
+  .edit-overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: mat-color($app-primary, 900);
+    color: white;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,33 @@
+<div
+  fxLayout="column"
+  fxLayout.gt-lg="row wrap"
+  fxLayoutGap="10px"
+  fxLayoutAlign="flex-start"
+>
+  <msft-aiala-day-template-card
+    *ngFor="let template of dayTemplates$ | async"
+    [dayTemplate]="template"
+    [menu]="editableConfig?.isPastOrToday ? null : templateMenu"
+    fxFlex.gt-lg="0 0 calc(33% - 10px)"
+    fxFlex="0 0 100%"
+  >
+    <mat-menu #templateMenu>
+      <button mat-menu-item (click)="applyTemplate.next(template)">
+        <mat-icon svgIcon="far:chevron-double-left"></mat-icon>
+        <span i18n="@@add">Apply</span>
+      </button>
+      <button mat-menu-item (click)="deleteTemplate(template.id)">
+        <mat-icon svgIcon="far:trash"></mat-icon>
+        <span i18n="@@delete">Delete</span>
+      </button>
+    </mat-menu>
+  </msft-aiala-day-template-card>
+</div>
+
+<ng-template #confirmDeleteTitle>
+  <span i18n="@@confirmDeleteTemplateTitle">Delete template</span>
+</ng-template>
+
+<ng-template #confirmDeleteText>
+  <span i18n="@@confirmDeleteTemplate">Are you sure that you want to delete this template?</span>
+</ng-template>

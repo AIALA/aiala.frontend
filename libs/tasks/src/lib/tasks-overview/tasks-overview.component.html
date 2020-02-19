@@ -1,0 +1,50 @@
+<mat-toolbar #toolbar="xpdoToolbar" color="primary" xpdoSidenavToolbar>
+  <div fxFlex i18n="@@tasks">Tasks</div>
+
+  <button mat-icon-button [routerLink]="['../edit']">
+    <mat-icon svgIcon="far:plus"></mat-icon>
+  </button>
+</mat-toolbar>
+<div
+  class="container"
+  [xpdoSidenavContent]="toolbar"
+  fxLayout="row wrap"
+  fxLayout.lt-sm="column"
+  fxLayoutGap="10px"
+  fxLayoutAlign="flex-start"
+>
+  <ng-template #loadingSpinner>
+    <msft-aiala-loading-spinner></msft-aiala-loading-spinner>
+  </ng-template>
+
+  <ng-container *ngIf="!(loading$ | async); else loadingSpinner">
+    <div *ngIf="generalError$ | async; let errors" fxFlex="1 1 100%" [style.paddingBottom.px]="10">
+      <msft-aiala-form-error [errors]="errors" class="max-w-600" [style.display]="'block'" [removeMargin]="true"></msft-aiala-form-error>
+    </div>
+
+    <msft-aiala-task-card
+      *ngFor="let task of tasks$ | async"
+      class="clickable-container"
+      [task]="task"
+      fxFlex.gt-xs="0 0 calc(25% - 10px)"
+      fxFlex.xs="0 0 100%"
+      [routerLink]="['../edit/' + task.id]"
+      [menu]="taskMenu"
+    >
+      <mat-menu #taskMenu>
+        <button mat-menu-item (click)="deleteTask(task.id)">
+          <mat-icon svgIcon="far:trash"></mat-icon>
+          <span i18n="@@delete">Delete</span>
+        </button>
+      </mat-menu>
+    </msft-aiala-task-card>
+  </ng-container>
+</div>
+
+<ng-template #confirmDeleteTitle>
+  <span i18n="@@confirmDeleteTaskTitle">Delete task</span>
+</ng-template>
+
+<ng-template #confirmDeleteText>
+  <span i18n="@@confirmDeleteTask">Are you sure that you want to delete this task?</span>
+</ng-template>

@@ -1,0 +1,101 @@
+@import '../variables';
+
+:host() {
+  width: 100%;
+  margin-right: 10px;
+  padding-bottom: 5px;
+
+  table {
+    width: 100%;
+
+    mat-header-cell,
+    mat-cell {
+      padding-right: 5px;
+    }
+
+    mat-row {
+      outline: none;
+    }
+
+    mat-cell {
+      cursor: pointer;
+
+      p {
+        margin: 0;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+
+    .mat-column-picture {
+      max-width: 40px;
+      padding: 0 10px;
+
+      .user-picture {
+        border-style: none;
+        height: 35px;
+        width: 35px;
+      }
+    }
+
+    .mat-column-name {
+      max-width: 200px;
+    }
+
+    mat-cell.mat-column-email {
+      padding-top: 19px;
+      margin-bottom: 5px;
+
+      .invitation-status {
+        font-size: 0.8em;
+        font-weight: 300;
+        text-transform: lowercase;
+      }
+    }
+
+    .mat-column-lastLogin {
+      max-width: 130px;
+    }
+
+    .mat-column-status {
+      max-width: 80px;
+    }
+
+    .mat-column-actions {
+      max-width: 40px;
+      padding-right: 16px;
+    }
+
+    .user-status {
+      margin: 7px 0;
+      font-size: 0.7em;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: 1px solid;
+      padding: 3px;
+      border-radius: 4px;
+
+
+      &.enabled {
+        $enabled: map-get($status-color, enabled);
+        color: $enabled;
+        border-color: $enabled;
+      }
+
+      &.permission {
+        $primary: mat-color($app-primary, 700);
+        color: $primary;
+        border-color: $primary;
+      }
+
+      &.disabled,
+      &.emergency-contact {
+        $disabled: map-get($status-color, disabled);
+        color: $disabled;
+        border-color: $disabled;
+      }
+    }
+  }
+}

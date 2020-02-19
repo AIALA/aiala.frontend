@@ -1,0 +1,104 @@
+<div class="user-profile-expandable">
+  <div class="picture-container" (click)="expanded = !expanded">
+    <msft-aiala-thumbnail class="picture" [source]="(profile$ | async)?.pictureUrl" [pictureType]="pictureType"></msft-aiala-thumbnail>
+  </div>
+  <mat-expansion-panel class="mat-elevation-z0" [(expanded)]="expanded">
+    <mat-expansion-panel-header
+      [expandedHeight]="'46px'"
+      [collapsedHeight]="'46px'"
+    >
+      <div fxLayout="column">
+        <h4 class="name">
+          {{ (profile$ | async)?.firstname }} {{ (profile$ | async)?.lastname }}
+        </h4>
+        <p>{{ (selectedAccount$ | async)?.name }}</p>
+      </div>
+    </mat-expansion-panel-header>
+    <xpdo-sidenav-layout-group>
+      <ng-container *ngIf="profile.accounts?.length < 3">
+        <div
+          *ngFor="let account of profile.accounts"
+          [ngSwitch]="account.selected"
+        >
+          <a
+            mat-list-item
+            [disabled]="true"
+            xpdoSidenavLayoutItem
+            *ngSwitchCase="true"
+          >
+            <ng-container [ngSwitch]="account.multiUser">
+              <mat-icon
+                mat-list-icon
+                svgIcon="fal:building"
+                *ngSwitchCase="true"
+              ></mat-icon>
+              <mat-icon
+                mat-list-icon
+                svgIcon="fal:home"
+                *ngSwitchCase="false"
+              ></mat-icon>
+            </ng-container>
+            <span>{{ account.name }}</span>
+          </a>
+          <button
+            *ngSwitchDefault
+            mat-list-item
+            xpdoSidenavLayoutItem
+            (click)="changeAccount.emit(account.id)"
+          >
+            <ng-container [ngSwitch]="account.multiUser">
+              <mat-icon
+                mat-list-icon
+                svgIcon="fal:building"
+                *ngSwitchCase="true"
+              ></mat-icon>
+              <mat-icon
+                mat-list-icon
+                svgIcon="fal:home"
+                *ngSwitchCase="false"
+              ></mat-icon>
+            </ng-container>
+            <span>{{ account.name }}</span>
+          </button>
+        </div>
+      </ng-container>
+      <xpdo-sidenav-layout-group *ngIf="profile.accounts?.length >= 3">
+        <button
+          mat-list-item
+          xpdoSidenavLayoutItem
+          (click)="openDialog.emit('accounts')"
+        >
+          <mat-icon mat-list-icon svgIcon="fal:layer-group"></mat-icon>
+          <span>Accounts</span>
+        </button>
+      </xpdo-sidenav-layout-group>
+    </xpdo-sidenav-layout-group>
+    <mat-divider></mat-divider>
+    <xpdo-sidenav-layout-group>
+      <button
+        mat-list-item
+        xpdoSidenavLayoutItem
+        (click)="openDialog.emit('password-change')"
+      >
+        <mat-icon mat-list-icon svgIcon="far:key"></mat-icon>
+        <span i18n="@@changePassword">Change password</span>
+      </button>
+      <button mat-list-item xpdoSidenavLayoutItem (click)="logout.emit()">
+        <mat-icon mat-list-icon svgIcon="far:sign-out"></mat-icon>
+        <span i18n="@@logout">Log out</span>
+      </button>
+    </xpdo-sidenav-layout-group>
+    <mat-divider></mat-divider>
+    <xpdo-sidenav-layout-group>
+      <button mat-list-item xpdoSidenavLayoutItem xpdoClickStopPropagation>
+        <mat-icon svgIcon="far:language"></mat-icon>
+        <span i18n="@@language">Language</span>
+      </button>
+      <button mat-list-item xpdoSidenavLayoutItem (click)="navigateToLanguage('en-us')">English</button>
+      <button mat-list-item xpdoSidenavLayoutItem (click)="navigateToLanguage('de-ch')">Deutsch</button>
+      <button mat-list-item xpdoSidenavLayoutItem (click)="navigateToLanguage('fr-ch')">Français</button>
+      <button mat-list-item xpdoSidenavLayoutItem (click)="navigateToLanguage('it-ch')">Italiano</button>
+      <button mat-list-item xpdoSidenavLayoutItem (click)="navigateToLanguage('es-es')">Español</button>
+    </xpdo-sidenav-layout-group>
+  </mat-expansion-panel>
+</div>

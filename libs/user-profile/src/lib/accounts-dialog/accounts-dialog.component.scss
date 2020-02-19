@@ -1,0 +1,46 @@
+:host() {
+  .container {
+    height: calc(100% - 56px);
+    overflow: hidden;
+
+    .content {
+      padding: 0 20px 20px;
+    }
+
+    .account-content-wrapper {
+      height: 100%;
+      width: 100%;
+
+      .account-list {
+        overflow: auto;
+      }
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .action-buttons {
+      min-height: 40px;
+    }
+  }
+
+  mat-form-field {
+    display: block;
+    .mat-form-field-infix {
+      border-top: 0;
+    }
+  }
+
+  .mat-list-base {
+    padding-top: 0px !important;
+    button {
+      &:focus {
+        background: rgba(0, 0, 0, 0.04);
+      }
+      .mat-icon {
+        margin-right: 10px;
+      }
+    }
+  }
+}

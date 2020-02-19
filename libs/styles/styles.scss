@@ -1,0 +1,64 @@
+@import '~normalize-scss/sass/normalize/import-now';
+@import './fonts.scss';
+@import './theme.scss';
+@import './headers.scss';
+@import './lists.scss';
+@import './global-component-styles';
+
+/* === Clickable things */
+
+.clickable-container:hover {
+  cursor: pointer;
+}
+
+.clickable-container:focus {
+  outline: none;
+}
+
+/* !== Clickable things */
+
+/* === Width */
+
+@for $i from 1 through 20 {
+  $width: $i * 50;
+  .w-#{$width} {
+    width: #{$width}px;
+  }
+  .max-w-#{$width} {
+    max-width: #{$width}px;
+  }
+}
+
+.max-w-100p {
+  max-width: 100%;
+}
+
+.w-100p {
+  width: 100%;
+}
+
+/* !== Width */
+
+/* === Icons & Buttons */
+
+.mat-raised-button .mat-icon.mat-icon-inline {
+  &:not(.inline-icon-right) {
+    margin-right: 10px;
+  }
+
+  &.inline-icon-right {
+    margin-left: 10px;
+  }
+}
+
+/* !== Icons & Buttons */
+
+/* === Dialogs */
+
+mat-dialog-content.aiala-dialog-content {
+  max-height: 90vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* !== */

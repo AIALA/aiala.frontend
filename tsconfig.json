@@ -1,0 +1,42 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "module": "es2015",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@msft-aiala/shared/testing": ["libs/shared/src/testing/index.ts"],
+      "@msft-aiala/shared": ["libs/shared/src/index.ts"],
+      "@msft-aiala/register": ["libs/register/src/index.ts"],
+      "@msft-aiala/intro": ["libs/intro/src/index.ts"],
+      "@msft-aiala/tasks": ["libs/tasks/src/index.ts"],
+      "@msft-aiala/error": ["libs/error/src/index.ts"],
+      "@msft-aiala/user-management": ["libs/user-management/src/index.ts"],
+      "@msft-aiala/picture/testing": ["libs/picture/src/testing/index.ts"],
+      "@msft-aiala/picture": ["libs/picture/src/index.ts"],
+      "@msft-aiala/schedule": ["libs/schedule/src/index.ts"],
+      "@msft-aiala/invitation": ["libs/invitation/src/index.ts"],
+      "@msft-aiala/user-profile": ["libs/user-profile/src/index.ts"],
+      "@msft-aiala/password-reset": ["libs/password-reset/src/index.ts"],
+      "@msft-aiala/settings/tenant": ["libs/settings/src/tenant/index.ts"],
+      "@msft-aiala/settings": ["libs/settings/src/index.ts"],
+      "@msft-aiala/user-controls": ["libs/user-controls/src/index.ts"],
+      "@msft-aiala/places": ["libs/places/src/index.ts"],
+      "@msft-aiala/gallery": ["libs/gallery/src/index.ts"],
+      "@msft-aiala/documents": ["libs/documents/src/index.ts"],
+      "@msft-aiala/codes": ["libs/codes/src/index.ts"],
+      "@msft-aiala/reports": ["libs/reports/src/index.ts"],
+      "@msft-aiala/azure": ["libs/azure/src/index.ts"]
+    },
+    "noUnusedLocals": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

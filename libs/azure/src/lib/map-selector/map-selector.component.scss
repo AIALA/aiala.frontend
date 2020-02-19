@@ -1,0 +1,54 @@
+@import './libs/styles/variables';
+
+:host {
+  position: relative;
+
+  #azure-map {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .autocomplete-form {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 500px;
+    max-width: 100%;
+    padding: 15px;
+    background: white;
+
+    mat-form-field {
+      margin-bottom: -1.25rem;
+    }
+  }
+
+  .html-templates-container {
+    display: none;
+  }
+
+  .info-window-content {
+    padding: 15px;
+
+    h5 {
+      margin-top: 0;
+    }
+
+    .action-buttons {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+
+  mat-icon {
+    font-size: 30px;
+
+    &.saved-changes {
+      color: $app-success;
+    }
+
+    &.unsaved-changes {
+      color: mat-color($app-primary, 700);
+    }
+  }
+}

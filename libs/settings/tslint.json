@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "msft-aiala", "camelCase"],
+    "component-selector": [true, "element", "msft-aiala", "kebab-case"]
+  }
+}

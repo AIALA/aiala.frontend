@@ -1,0 +1,25 @@
+<mat-form-field [formGroup]="appFormGroup">
+  <mat-select
+    [formControlName]="appFormControlName"
+    i18n-placeholder="@@timeZone"
+    placeholder="Time zone"
+    class="full-width-select"
+    required
+  >
+    <mat-optgroup i18n-label="@@recommended" label="Recommended">
+      <mat-option
+        *ngFor="let timeZone of (currentTimeZones$ | async)"
+        [value]="timeZone.id"
+      >
+        {{timeZone.displayName}}
+      </mat-option>
+    </mat-optgroup>
+
+    <mat-option
+      *ngFor="let timeZone of (timeZones$ | async)"
+      [value]="timeZone.id"
+    >
+      {{timeZone.displayName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

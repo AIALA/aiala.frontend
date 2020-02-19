@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-title i18n="@@passwordResetTitle"
+    >Reset password</mat-card-title
+  >
+  <mat-card-content>
+    <div @request *ngIf="!(isRequested$ | async); else requestSent">
+      <section>
+        <p i18n="@@requestPasswordReset">
+          To reset your password, please enter the email address with which you log in.
+        </p>
+      </section>
+      <section>
+        <form [formGroup]="form">
+          <mat-form-field
+            ><input
+              formControlName="email"
+              matInput
+              type="email"
+              placeholder="Email"
+              i18n-placeholder="@@email"
+              required
+            />
+          </mat-form-field>
+        </form>
+      </section>
+    </div>
+    <ng-template #requestSent>
+      <section @requestSent>
+        <p>
+          <span i18n="@@emailSentOn"
+            >We have sent an email to:&nbsp;</span
+          >
+          <strong>{{ email$ | async }}</strong>
+        </p>
+        <p i18n="@@followInstructionsInMail">
+          Please follow the instructions in that email.
+        </p>
+      </section>
+    </ng-template>
+  </mat-card-content>
+  <mat-card-actions
+    @request
+    *ngIf="!(isRequested$ | async)"
+    fxLayout="row"
+    fxLayoutAlign="end center"
+  >
+    <button
+      mat-raised-button
+      [xpdoProgressSpinner]="loading$ | async"
+      (click)="sendRequest(email.value)"
+      color="primary"
+      [disabled]="form.invalid"
+      i18n="@@reset"
+    >
+      Reset
+    </button>
+  </mat-card-actions>
+</mat-card>

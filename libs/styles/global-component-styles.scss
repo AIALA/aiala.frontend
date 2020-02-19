@@ -1,0 +1,62 @@
+/*
+  Global styles that apply only to select components, mainly because of shadow dom in children
+*/
+
+@import './variables';
+
+/* === Thumbnail */
+msft-aiala-thumbnail .fallback-container .mat-icon svg {
+  width: 100%;
+  height: 100%;
+}
+/* !== Thumbnail */
+
+/* === Loading Spinner */
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+msft-aiala-loading-spinner mat-icon {
+  font-size: 1.5em;
+
+  svg {
+    animation: rotating 2s linear infinite;
+  }
+}
+/* !== Loading Spinner */
+
+/* === Sidenav */
+
+.second-level-sidenav:not(.sidenav-mobile) mat-sidenav {
+  top: 112px !important;
+}
+
+.second-level-sidenav.sidenav-mobile mat-sidenav {
+  top: 56px !important;
+}
+
+/* !== Sidenav */
+
+/* === Azure Maps */
+
+.atlas-map {
+  .popup-content-container {
+    box-shadow: none;
+    border: 1px solid $gray-50;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .popup-arrow {
+    border-top-color: $gray-50;
+  }
+}
+
+/* !== Azure Maps */

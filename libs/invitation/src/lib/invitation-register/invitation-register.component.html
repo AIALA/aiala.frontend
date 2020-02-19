@@ -1,0 +1,89 @@
+<mat-card>
+  <mat-card-title i18n="@@invitationRegisterTitle"
+    >Create account</mat-card-title
+  >
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field>
+        <input matInput formControlName="firstname" i18n-placeholder="@@firstname" placeholder="First name" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="lastname" i18n-placeholder="@@lastname" placeholder="Nachname" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="email" i18n-placeholder="@@email" placeholder="Email" />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          i18n-placeholder="@@password"
+          name="password"
+          placeholder="Passwort"
+          formControlName="password"
+          required
+        />
+        <mat-error class="single-row">
+          <div *ngIf="form.get('password').hasError('minLength')" i18n="@@passwordMinLength">
+            Password must be at least 8 characters long
+          </div>
+          <div *ngIf="form.get('password').hasError('lowerCase')" i18n="@@passwordLowerCase">
+            Password requires at least one lower case letter
+          </div>
+          <div *ngIf="form.get('password').hasError('upperCase')" i18n="@@passwordUpperCase">
+            Password requires at least one upper case letter
+          </div>
+          <div *ngIf="form.get('password').hasError('numbers')" i18n="@@passwordNumbers">
+            Password requires at least one number
+          </div>
+          <div *ngIf="form.get('password').hasError('specialCharacter')" i18n="@@passwordSpecialCharacter">
+            Password requires at least one special character
+          </div>
+          <div
+            *ngFor="let error of form.get('password').getError('badRequests')"
+          >
+            {{ error }}
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          i18n-placeholder="@@passwordConfirmation"
+          name="passwordConfirmation"
+          placeholder="Passwort wiederholen"
+          formControlName="passwordConfirmation"
+          required
+          [errorStateMatcher]="passwordEqualMatcher"
+        />
+        <mat-error class="single-row">
+          <div
+            *ngIf="form.hasError('passwordNotEqual')"
+            i18n="@@passwordNotEqual"
+          >
+            Passwords have to match
+          </div>
+          <div
+            *ngFor="let error of form.get('password').getError('badRequests')"
+          >
+            {{ error }}
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="end" fxLayoutGap="10px">
+    <button mat-button (click)="back()" i18n="@@back">Back</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="register()"
+      i18n="@@register"
+      [disabled]="form.invalid"
+      [xpdoProgressSpinner]="isCreating$ | async"
+    >
+      Regiser
+    </button>
+  </mat-card-actions>
+</mat-card>

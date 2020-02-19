@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="loading"><source>../../libs/shared/src/lib/loading-spinner/loading-spinner.component.html:3</source>Loading...</msg>
+  <msg id="startPortal"><source>../../libs/intro/src/lib/intro.component.html:3</source>Starting Portal</msg>
+  <msg id="loginInProgress"><source>../../libs/intro/src/lib/intro.component.html:10</source>You are being logged in...</msg>
+  <msg id="changeAccount"><source>../../libs/user-profile/src/lib/accounts-dialog/accounts-dialog.component.html:1,3</source>
+  <ph name="START_PARAGRAPH"><ex>&lt;p&gt;</ex>&lt;p&gt;</ph>Change account<ph name="CLOSE_PARAGRAPH"><ex>&lt;/p&gt;</ex>&lt;/p&gt;</ph>
+</msg>
+  <msg id="noResult"><source>../../libs/user-profile/src/lib/accounts-dialog/accounts-dialog.component.html:58</source>No result for your search</msg>
+  <msg id="changePassword"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:2</source><source>../../libs/user-profile/src/lib/user-profile-expandable/user-profile-expandable.component.html:84</source><source>../../libs/user-profile/src/lib/user-profile-menu/user-profile-menu.component.html:105</source>Change password</msg>
+  <msg id="currentPassword"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:12</source>Current password</msg>
+  <msg id="newPassword"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:31</source>New password</msg>
+  <msg id="passwordMinLength"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:34,36</source>
+            Password must be at least 8 characters long
+          </msg>
+  <msg id="passwordLowerCase"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:37,39</source>
+            Password requires at least one lower case letter
+          </msg>
+  <msg id="passwordUpperCase"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:40,42</source>
+            Password requires at least one upper case letter
+          </msg>
+  <msg id="passwordNumbers"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:43,45</source>
+            Password requires at least one number
+          </msg>
+  <msg id="passwordSpecialCharacter"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:46,48</source>
+            Password requires at least one special character
+          </msg>
+  <msg id="confirmNewPassword"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:64</source>Confirm password</msg>
+  <msg id="passwordNotEqual"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:71,73</source>
+            Passwords have to match
+          </msg>
+  <msg id="cancel"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:88</source><source>../../libs/user-profile/src/lib/change-profile-picture-dialog/change-profile-picture-dialog.html:14,16</source><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:84</source><source>../../libs/user-management/src/lib/user-create/user-create.component.html:55,57</source><source>../../libs/user-management/src/lib/user-edit/user-edit.component.html:30,32</source><source>../../libs/documents/src/lib/document-request-dialog/document-request-dialog.component.html:9</source><source>../../libs/schedule/src/lib/create-template-dialog/create-template-dialog.component.html:33,35</source><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:66,68</source>Cancel</msg>
+  <msg id="save"><source>../../libs/user-profile/src/lib/change-password-dialog/change-password-dialog.component.html:96,98</source><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:66</source><source>../../libs/user-profile/src/lib/change-profile-picture-dialog/change-profile-picture-dialog.html:24,26</source><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:85</source><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:8</source><source>../../libs/places/src/lib/place-editor/place-editor.component.html:8</source><source>../../libs/user-management/src/lib/user-edit/user-edit.component.html:40,42</source><source>../../libs/user-management/src/lib/permission-group-edit/permission-group-edit.component.html:29,31</source><source>../../libs/schedule/src/lib/edit-day/edit-day.component.html:10</source><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:8</source><source>../../libs/gallery/src/lib/edit-gallery-picture/edit-gallery-picture.component.html:8</source>
+      Save
+    </msg>
+  <msg id="schedule"><source>src/app/main/main.component.html:24</source><source>../../libs/schedule/src/lib/schedule-overview/schedule-overview.component.html:2</source><source>../../libs/schedule/src/lib/edit-day/edit-day.component.html:56</source>Schedule</msg>
+  <msg id="tasks"><source>src/app/main/main.component.html:34</source><source>../../libs/tasks/src/lib/tasks-overview/tasks-overview.component.html:2</source><source>../../libs/schedule/src/lib/schedule-overview/schedule-overview.component.html:61</source><source>../../libs/schedule/src/lib/edit-day/edit-day.component.html:72</source><source>../../libs/schedule/src/lib/day-template-card/day-template-card.component.html:11</source>Tasks</msg>
+  <msg id="places"><source>src/app/main/main.component.html:44</source><source>../../libs/places/src/lib/places-overview/places-overview.component.html:2</source>Places</msg>
+  <msg id="gallery"><source>src/app/main/main.component.html:54</source><source>../../libs/gallery/src/lib/gallery/gallery.component.html:2</source>Gallery</msg>
+  <msg id="reports"><source>src/app/main/main.component.html:64</source><source>../../libs/reports/src/lib/reports-overview/reports-overview.component.html:3</source>Reports</msg>
+  <msg id="settings"><source>src/app/main/main.component.html:74</source><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:3</source>Settings</msg>
+  <msg id="userManagement"><source>src/app/main/main.component.html:84</source><source>../../libs/user-management/src/lib/user-overview/user-overview.component.html:2</source>User Management</msg>
+  <msg id="no"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:14,16</source><source>../../libs/azure/src/lib/map-selector/map-selector.component.html:38</source>
+      No
+    </msg>
+  <msg id="yes"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:22,24</source><source>../../libs/azure/src/lib/map-selector/map-selector.component.html:39</source>
+      Yes
+    </msg>
+  <msg id="discardUnsavedChanges"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:29</source>Discard all unsaved changes?</msg>
+  <msg id="unsavedChanges"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:33</source>Unsaved changes</msg>
+  <msg id="reloadBecauseOfUnauthorized"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:37,40</source>
+    Your login expired. This may have different cause, most likely inactivity.
+    Until the page is reloaded, you won&apos;t be able to access the app. Do you want to reload the page?
+  </msg>
+  <msg id="loginExpired"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:44</source>Login expired</msg>
+  <msg id="takePicture"><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:4</source><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:33</source><source>../../libs/picture/src/lib/thumbnail/thumbnail.component.html:12</source>Take Picture</msg>
+  <msg id="uploadPicture"><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:5</source><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:13</source><source>../../libs/picture/src/lib/thumbnail/thumbnail.component.html:13</source><source>../../libs/user-profile/src/lib/profile-picture/profile-picture.component.html:19</source>Upload Picture</msg>
+  <msg id="checkingCamera"><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:21</source>Checking Camera...</msg>
+  <msg id="cameraUnavailable"><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:39</source>Camera unavailable or permissions denied.</msg>
+  <msg id="crop"><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:46</source>Crop</msg>
+  <msg id="imageSaved"><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:52</source>Image saved</msg>
+  <msg id="close"><source>../../libs/picture/src/lib/take-picture-dialog/take-picture-dialog.component.html:68</source><source>../../libs/picture/src/lib/view-picture-dialog/view-picture-dialog.component.html:6</source>Close</msg>
+  <msg id="viewPicture"><source>../../libs/picture/src/lib/thumbnail/thumbnail.component.html:10</source>View picture</msg>
+  <msg id="deletePicture"><source>../../libs/picture/src/lib/thumbnail/thumbnail.component.html:14</source><source>../../libs/user-profile/src/lib/profile-picture/profile-picture.component.html:22</source>Delete picture</msg>
+  <msg id="changeProfilePicture"><source>../../libs/user-profile/src/lib/change-profile-picture-dialog/change-profile-picture-dialog.html:1</source><source>../../libs/user-profile/src/lib/profile-picture/profile-picture.component.html:8</source>Change profile picture</msg>
+  <msg id="showPicture"><source>../../libs/user-profile/src/lib/profile-picture/profile-picture.component.html:13</source>Show picture</msg>
+  <msg id="recordPicture"><source>../../libs/user-profile/src/lib/profile-picture/profile-picture.component.html:16</source>Record picture</msg>
+  <msg id="editUserProfile"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:1</source>Edit user profile</msg>
+  <msg id="firstname"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:10</source><source>../../libs/user-management/src/lib/user-create/user-create.component.html:11</source><source>../../libs/user-management/src/lib/user-edit/user-edit.component.html:9</source>First name</msg>
+  <msg id="lastname"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:20</source><source>../../libs/user-management/src/lib/user-create/user-create.component.html:20</source><source>../../libs/user-management/src/lib/user-edit/user-edit.component.html:12</source>Last name</msg>
+  <msg id="email"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:30</source><source>../../libs/user-management/src/lib/user-create/user-create.component.html:29</source><source>../../libs/user-management/src/lib/user-edit/user-edit.component.html:15</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:27</source>Email</msg>
+  <msg id="phone"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:40</source>Phone number</msg>
+  <msg id="birthDate"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:49</source>Birth date</msg>
+  <msg id="street"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:60</source>Street</msg>
+  <msg id="postCode"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:70</source>Zip code</msg>
+  <msg id="place"><source>../../libs/user-profile/src/lib/update-profile-dialog/update-profile-dialog.component.html:78</source><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:60</source><source>../../libs/places/src/lib/place-editor/place-editor.component.html:3</source>Town</msg>
+  <msg id="logout"><source>../../libs/user-profile/src/lib/user-profile-expandable/user-profile-expandable.component.html:88</source><source>../../libs/user-profile/src/lib/user-profile-menu/user-profile-menu.component.html:109</source>Log out</msg>
+  <msg id="language"><source>../../libs/user-profile/src/lib/user-profile-expandable/user-profile-expandable.component.html:95</source><source>../../libs/user-profile/src/lib/user-profile-menu/user-profile-menu.component.html:77</source>Language</msg>
+  <msg id="accounts"><source>../../libs/user-profile/src/lib/user-profile-menu/user-profile-menu.component.html:70</source>Accounts</msg>
+  <msg id="profile"><source>../../libs/user-profile/src/lib/user-profile-overview/user-profile-overview.component.html:3</source>Profile -- Temporary</msg>
+  <msg id="task"><source>../../libs/reports/src/lib/reports-overview/reports-overview.component.html:17</source><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:3</source><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:2</source>Task</msg>
+  <msg id="day"><source>../../libs/reports/src/lib/reports-overview/reports-overview.component.html:18</source>Day</msg>
+  <msg id="dayOfWeek"><source>../../libs/reports/src/lib/reports-overview/reports-overview.component.html:19</source>Day of week</msg>
+  <msg id="unit"><source>../../libs/reports/src/lib/reports-overview/reports-overview.component.html:15</source>Unit</msg>
+  <msg id="reportConfig"><source>../../libs/reports/src/lib/report/report.component.html:10</source>Report Config</msg>
+  <msg id="reportConfigExplainer"><source>../../libs/reports/src/lib/report/report.component.html:11</source>Copy this config somewhere to set it aside. Apply this config at a later time by pasting it into the textarea and hitting apply.</msg>
+  <msg id="apply"><source>../../libs/reports/src/lib/report/report.component.html:13</source><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:75,77</source>Apply</msg>
+  <msg id="search"><source>../../libs/azure/src/lib/map-selector/map-selector.component.html:9</source>Search</msg>
+  <msg id="chooseThisLocation"><source>../../libs/azure/src/lib/map-selector/map-selector.component.html:36</source>Choose this location?</msg>
+  <msg id="none"><source>../../libs/places/src/lib/place-selector/place-selector.component.html:4</source><source>../../libs/user-controls/src/lib/user-selector/user-selector.component.html:4</source>None</msg>
+  <msg id="delete"><source>../../libs/tasks/src/lib/tasks-overview/tasks-overview.component.html:37</source><source>../../libs/tasks/src/lib/task-step-editor/task-step-editor.component.html:22</source><source>../../libs/places/src/lib/places-overview/places-overview.component.html:33</source><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:33</source><source>../../libs/user-management/src/lib/user-overview-menu/user-overview-menu.component.html:39</source><source>../../libs/schedule/src/lib/day-templates-overview/day-templates-overview.component.html:21</source><source>../../libs/gallery/src/lib/gallery/gallery.component.html:28</source><source>../../libs/gallery/src/lib/edit-gallery-tag/edit-gallery-tag.component.html:24</source>Delete</msg>
+  <msg id="confirmDeleteTaskTitle"><source>../../libs/tasks/src/lib/tasks-overview/tasks-overview.component.html:45</source>Delete task</msg>
+  <msg id="confirmDeleteTask"><source>../../libs/tasks/src/lib/tasks-overview/tasks-overview.component.html:49</source>Are you sure that you want to delete this task?</msg>
+  <msg id="taskDetails"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:40</source>Task Details</msg>
+  <msg id="name"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:53</source><source>../../libs/places/src/lib/place-editor/place-editor.component.html:47</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:18</source><source>../../libs/schedule/src/lib/edit-day/edit-day.component.html:46</source>Name</msg>
+  <msg id="defaultDuration"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:69</source>Default Duration</msg>
+  <msg id="steps"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:80</source>Steps</msg>
+  <msg id="addStep"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:89</source>Add Step</msg>
+  <msg id="emergencyContacts"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:102</source><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:149</source>Emergency contacts</msg>
+  <msg id="useTaskContacts"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:115,117</source>
+              Use other contacts than specified in settings
+            </msg>
+  <msg id="configureEmergencyContactsHint"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:123</source><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:161</source>Hint: Selectable contacts are all users as configured by the administrators in the user management.</msg>
+  <msg id="contact1"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:129</source><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:167</source>Contact one</msg>
+  <msg id="contact2"><source>../../libs/tasks/src/lib/task-editor/task-editor.component.html:136</source><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:174</source>Contact two</msg>
+  <msg id="confirmDeletePlaceTitle"><source>../../libs/places/src/lib/places-overview/places-overview.component.html:41</source>Delete place</msg>
+  <msg id="confirmDeletePlace"><source>../../libs/places/src/lib/places-overview/places-overview.component.html:45</source>Are you sure that you want to delete this place?</msg>
+  <msg id="placeDetails"><source>../../libs/places/src/lib/place-editor/place-editor.component.html:39</source>Place Details</msg>
+  <msg id="placeSelection"><source>../../libs/places/src/lib/place-editor/place-editor.component.html:55</source>Place selection</msg>
+  <msg id="centerOnSelection"><source>../../libs/places/src/lib/place-editor/place-editor.component.html:64</source>Center on selection</msg>
+  <msg id="showCurrentLocation"><source>../../libs/places/src/lib/place-editor/place-editor.component.html:72</source>Show current location</msg>
+  <msg id="placeSelectionHint"><source>../../libs/places/src/lib/place-editor/place-editor.component.html:75</source>Click on map to select location</msg>
+  <msg id="newUser"><source>../../libs/user-management/src/lib/user-create/user-create.component.html:2</source>New user</msg>
+  <msg id="emergencyContact"><source>../../libs/user-management/src/lib/user-create/user-create.component.html:41</source><source>../../libs/user-management/src/lib/user-create/user-create.component.html:42</source><source>../../libs/user-management/src/lib/user-create/user-create.component.html:43</source><source>../../libs/user-management/src/lib/user-create/user-create.component.html:44</source><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:43</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:96</source>Emergency contact (no login)</msg>
+  <msg id="role"><source>../../libs/user-management/src/lib/user-create/user-create.component.html:39</source>Role</msg>
+  <msg id="create"><source>../../libs/user-management/src/lib/user-create/user-create.component.html:65,67</source><source>../../libs/schedule/src/lib/create-template-dialog/create-template-dialog.component.html:43,45</source>
+      Create
+    </msg>
+  <msg id="editUser"><source>../../libs/user-management/src/lib/user-edit/user-edit.component.html:2</source>Edit user</msg>
+  <msg id="editPermissionGroup"><source>../../libs/user-management/src/lib/permission-group-edit/permission-group-edit.component.html:2</source><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:21</source>Permissions</msg>
+  <msg id="searchPermissionGroup"><source>../../libs/user-management/src/lib/permission-group-edit/permission-group-edit.component.html:5</source>Search permission</msg>
+  <msg id="user"><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:7</source>User</msg>
+  <msg id="deactivate"><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:25</source><source>../../libs/user-management/src/lib/user-overview-menu/user-overview-menu.component.html:31</source>Deactivate</msg>
+  <msg id="activate"><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:29</source><source>../../libs/user-management/src/lib/user-overview-menu/user-overview-menu.component.html:35</source>Activate</msg>
+  <msg id="enabled"><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:60</source><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:6</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:63,65</source>Enabled</msg>
+  <msg id="disabled"><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:61,63</source><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:7</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:70,72</source>
+              Disabled
+            </msg>
+  <msg id="resendInvitation"><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:93</source>Resend invitation</msg>
+  <msg id="sendInvitation"><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:96</source><source>../../libs/user-management/src/lib/user-overview-menu/user-overview-menu.component.html:15</source>Send invitation</msg>
+  <msg id="lastLogin"><source>../../libs/user-management/src/lib/user-detail/user-detail.component.html:111</source><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:34</source>last logged in at</msg>
+  <msg id="searchUser"><source>../../libs/user-management/src/lib/user-overview/user-overview.component.html:5</source>Search user</msg>
+  <msg id="notInvited"><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:20</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:38</source>not invited</msg>
+  <msg id="invited"><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:21</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:41</source>invited</msg>
+  <msg id="expired"><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:22</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:44</source>expired</msg>
+  <msg id="declined"><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:23</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:47</source>declined</msg>
+  <msg id="accepted"><source>../../libs/user-management/src/lib/user-overview-item/user-overview-item.component.html:24</source><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:50</source>accepted</msg>
+  <msg id="status"><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:58</source>Status</msg>
+  <msg id="lastLoginTitle"><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:80</source>Last Login</msg>
+  <msg id="permissions"><source>../../libs/user-management/src/lib/user-overview-list/user-overview-list.component.html:88</source>Permissions</msg>
+  <msg id="edit"><source>../../libs/user-management/src/lib/user-overview-menu/user-overview-menu.component.html:7</source>Edit</msg>
+  <msg id="reinvite"><source>../../libs/user-management/src/lib/user-overview-menu/user-overview-menu.component.html:27</source>Reinvite</msg>
+  <msg id="printDocument"><source>../../libs/documents/src/lib/document-request-dialog/document-request-dialog.component.html:1</source>Print document</msg>
+  <msg id="printExplainer"><source>../../libs/documents/src/lib/document-request-dialog/document-request-dialog.component.html:4,6</source>
+      Click the link below to open the document. It can be printed with your browsers print function.
+    </msg>
+  <msg id="openDocument"><source>../../libs/documents/src/lib/document-request-dialog/document-request-dialog.component.html:16</source>Open document</msg>
+  <msg id="oneWeekEarlier"><source>../../libs/schedule/src/lib/schedule-overview/schedule-overview.component.html:16</source>1 week earlier</msg>
+  <msg id="oneWeekLater"><source>../../libs/schedule/src/lib/schedule-overview/schedule-overview.component.html:19</source>1 week later</msg>
+  <msg id="printDayOverview"><source>../../libs/schedule/src/lib/schedule-overview/schedule-overview.component.html:24</source>Print day overview</msg>
+  <msg id="cancelSelection"><source>../../libs/schedule/src/lib/schedule-overview/schedule-overview.component.html:25</source>Cancel selection</msg>
+  <msg id="selectDayForOverview"><source>../../libs/schedule/src/lib/schedule-overview/schedule-overview.component.html:30</source>Select day to print:</msg>
+  <msg id="noSchedule"><source>../../libs/schedule/src/lib/schedule-overview/schedule-overview.component.html:66</source>No schedule</msg>
+  <msg id="createTemplate"><source>../../libs/schedule/src/lib/create-template-dialog/create-template-dialog.component.html:2</source>Create template based on this day</msg>
+  <msg id="templateName"><source>../../libs/schedule/src/lib/create-template-dialog/create-template-dialog.component.html:11</source>Template name</msg>
+  <msg id="fixErrorsOutsideOfDialog"><source>../../libs/schedule/src/lib/create-template-dialog/create-template-dialog.component.html:22,24</source>
+        Please adjust the day schedule to fix the issues and try again.
+      </msg>
+  <msg id="scheduleDay"><source>../../libs/schedule/src/lib/edit-day/edit-day.component.html:3</source>Schedule Day</msg>
+  <msg id="createDayTemplate"><source>../../libs/schedule/src/lib/edit-day/edit-day.component.html:19</source>Create day template</msg>
+  <msg id="details"><source>../../libs/schedule/src/lib/edit-day/edit-day.component.html:38</source>Details</msg>
+  <msg id="templates"><source>../../libs/schedule/src/lib/edit-day/edit-day.component.html:65</source>Templates</msg>
+  <msg id="start"><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:14</source>Start</msg>
+  <msg id="end"><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:27</source>End</msg>
+  <msg id="overlappingTasks"><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:38</source>Overlapping Tasks</msg>
+  <msg id="startAfterEnd"><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:42</source>Start is after end</msg>
+  <msg id="earliestEditableTime"><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:45</source>A must be at least 5 minutes in the future to be edited</msg>
+  <msg id="remove"><source>../../libs/schedule/src/lib/edit-day-task-dialog/edit-day-task-dialog.component.html:58,60</source>
+      Remove task
+    </msg>
+  <msg id="add"><source>../../libs/schedule/src/lib/edit-day-tasks/edit-day-tasks.component.html:17</source><source>../../libs/schedule/src/lib/day-templates-overview/day-templates-overview.component.html:17</source>Add</msg>
+  <msg id="confirmDeleteTemplateTitle"><source>../../libs/schedule/src/lib/day-templates-overview/day-templates-overview.component.html:28</source>Delete template</msg>
+  <msg id="confirmDeleteTemplate"><source>../../libs/schedule/src/lib/day-templates-overview/day-templates-overview.component.html:32</source>Are you sure that you want to delete this template?</msg>
+  <msg id="dayName"><source>../../libs/schedule/src/lib/day-template-card/day-template-card.component.html:6</source>Day name</msg>
+  <msg id="recommended"><source>../../libs/codes/src/lib/time-zone-selection/time-zone-selection.component.html:9</source>Recommended</msg>
+  <msg id="timeZone"><source>../../libs/codes/src/lib/time-zone-selection/time-zone-selection.component.html:5</source>Time zone</msg>
+  <msg id="generalGroupSettings"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:32</source>General group settings</msg>
+  <msg id="defaultLanguage"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:43</source>Default language</msg>
+  <msg id="navigate"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:59</source>Navigate</msg>
+  <msg id="navigateSettingsDesc"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:63</source>Configure the static place tiles shown on the navigate page in the app</msg>
+  <msg id="place1"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:70</source>Lower left place tile</msg>
+  <msg id="place2"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:77</source>Lower right place tile</msg>
+  <msg id="emergencyHelpTexts"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:86</source>Emergency help texts</msg>
+  <msg id="emergencyHelpTextsDesc"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:90</source>Configure the help texts shown on the emergency screen</msg>
+  <msg id="emergencyLinkHint"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:95,98</source>
+            To add a link to the help text, use [text](link).
+            Example: [google](https://google.com).
+          </msg>
+  <msg id="bad"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:108</source>Bad</msg>
+  <msg id="preview"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:114</source><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:136</source>Preview</msg>
+  <msg id="improving"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:130</source>Improving</msg>
+  <msg id="emergencyContactsDesc"><source>../../libs/settings/src/tenant/lib/tenant-settings/tenant-settings.component.html:153</source>Configure who is notified about emergencies</msg>
+  <msg id="confirmDeletePictureTitle"><source>../../libs/gallery/src/lib/gallery/gallery.component.html:36</source>Delete picture</msg>
+  <msg id="confirmDeletePicture"><source>../../libs/gallery/src/lib/gallery/gallery.component.html:40</source>Are you sure that you want to delete this picture?</msg>
+  <msg id="noDescription"><source>../../libs/gallery/src/lib/gallery-picture-card/gallery-picture-card.component.html:8</source>No description</msg>
+  <msg id="picture"><source>../../libs/gallery/src/lib/edit-gallery-picture/edit-gallery-picture.component.html:3</source>Picture</msg>
+  <msg id="pictureProperties"><source>../../libs/gallery/src/lib/edit-gallery-picture/edit-gallery-picture.component.html:37</source>Picture Properties</msg>
+  <msg id="description"><source>../../libs/gallery/src/lib/edit-gallery-picture/edit-gallery-picture.component.html:47</source>Description</msg>
+  <msg id="pictureTags"><source>../../libs/gallery/src/lib/edit-gallery-picture/edit-gallery-picture.component.html:55</source>Tags</msg>
+  <msg id="addTag"><source>../../libs/gallery/src/lib/edit-gallery-picture/edit-gallery-picture.component.html:61</source>Add Tag</msg>
+  <msg id="tagConfidence"><source>../../libs/gallery/src/lib/confidence-hint/confidence-hint.component.html:2</source>AI Confidence:</msg>
+  <msg id="manualEdit"><source>../../libs/gallery/src/lib/confidence-hint/confidence-hint.component.html:5</source>Manual edit</msg>
+</messagebundle>

@@ -1,0 +1,92 @@
+<mat-card>
+  <mat-card-title i18n="@registrationTitle">Registration</mat-card-title>
+  <mat-card-content>
+    <section>
+      <form [formGroup]="form">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            i18n-placeholder="@@firstname"
+            name="firstname"
+            placeholder="First name"
+            formControlName="firstname"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            i18n-placeholder="@@lastname"
+            name="lastname"
+            placeholder="Last name"
+            formControlName="lastname"
+            required
+          />
+        </mat-form-field>
+
+        <msft-aiala-time-zone-selection
+          [appFormGroup]="form"
+          [appFormControlName]="'timeZoneId'"
+        ></msft-aiala-time-zone-selection>
+
+        <mat-form-field>
+          <input
+            matInput
+            type="email"
+            i18n-placeholder="@@email"
+            name="email"
+            placeholder="Email"
+            formControlName="email"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" i18n-placeholder="@@password" name="password"
+                  placeholder="Password" formControlName="password" required />
+          <mat-error class="single-row">
+            <div *ngIf="form.get('password').hasError('minLength')" i18n="@@passwordMinLength">
+              Password must be at least 8 characters long
+            </div>
+            <div *ngIf="form.get('password').hasError('lowerCase')" i18n="@@passwordLowerCase">
+              Password requires at least one lower case letter
+            </div>
+            <div *ngIf="form.get('password').hasError('upperCase')" i18n="@@passwordUpperCase">
+              Password requires at least one upper case letter
+            </div>
+            <div *ngIf="form.get('password').hasError('numbers')" i18n="@@passwordNumbers">
+              Password requires at least one number
+            </div>
+            <div *ngIf="form.get('password').hasError('specialCharacter')" i18n="@@passwordSpecialCharacter">
+              Password requires at least one special character
+            </div>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" i18n-placeholder="@@passwordConfirmation" name="passwordConfirmation"
+            placeholder="Confirm password" formControlName="passwordConfirmation" required [errorStateMatcher]="passwordEqualMatcher" />
+          <mat-error *ngIf="form.hasError('passwordNotEqual')" i18n="@@passwordNotEqual">
+            Passwords must match
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <msft-aiala-form-error [errors]="generalError$ | async"></msft-aiala-form-error>
+    </section>
+  </mat-card-content>
+  <mat-card-actions fxLayout="row" fxLayoutAlign="space-between">
+      <a mat-raised-button color="secondary" i18n="@@back" [routerLink]="['../language']">Back</a>
+      <button
+        [xpdoProgressSpinner]="loading$ | async"
+        mat-raised-button
+        color="primary"
+        i18n="@@register"
+        [disabled]="form.invalid"
+        (click)="submit()"
+      >
+        Register
+      </button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,5 @@
+<div class="container">
+  <div *ngIf="(profile$ | async) as profile">
+    <img [src]="profile.pictureUrl">
+  </div>
+</div>

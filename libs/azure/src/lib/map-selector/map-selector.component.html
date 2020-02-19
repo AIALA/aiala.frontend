@@ -1,0 +1,50 @@
+<div id="azure-map"></div>
+
+<form [formGroup]="autocompleteForm" class="autocomplete-form" fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+  <mat-form-field class="w-100p" floatLabel="always">
+      <input
+        matInput
+        type="text"
+        i18n-placeholder="@@search"
+        placeholder="Search"
+        class="w-100p"
+        formControlName="search"
+        [matAutocomplete]="auto"
+        (click)="showAutocomplete()"
+      >
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayAutocomplete" (optionSelected)="autocompleteSelected($event)">
+      <mat-option *ngFor="let option of (options$ | async)" [value]="option" style="line-height: 1.15; min-height: 48px; height: auto;">
+        <span>{{option.mainLine}}</span>
+        <br>
+        <mat-hint>{{option.subLine}}</mat-hint>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <!-- <mat-slide-toggle
+    formControlName="searchNear"
+    [checked]="autocompleteForm.value.searchNear"
+    (change)="autocompleteForm.value.searchNear = $event.checked"
+    i18n="@@searchNearMarker"
+  >
+    Search near marker
+  </mat-slide-toggle> -->
+</form>
+
+<div class="html-templates-container">
+  <div #infoWindowContent class="info-window-content">
+    <h5 i18n="@@chooseThisLocation">Choose this location?</h5>
+    <div fxLayoutAlign="end end" fxLayoutGap="5px" class="action-buttons">
+      <button mat-raised-button i18n="@@no" (click)="closeInfoWindow()">No</button>
+      <button mat-raised-button color="primary" i18n="@@yes" (click)="selectLocation()">Yes</button>
+    </div>
+  </div>
+
+  <div #unsavedChangesMarker>
+    <mat-icon class="unsaved-changes" svgIcon="fas:map-marker-alt"></mat-icon>
+  </div>
+
+  <div #savedChangesMarker>
+    <mat-icon class="saved-changes" svgIcon="fas:map-marker-alt"></mat-icon>
+  </div>
+</div>

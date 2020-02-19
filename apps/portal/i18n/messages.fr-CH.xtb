@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="fr-ch">
+  <translation id="loading">Chargement...</translation>
+  <translation id="no">Non</translation>
+  <translation id="yes">Oui</translation>
+  <translation id="discardUnsavedChanges">Ignorer les modifications ?</translation>
+  <translation id="unsavedChanges">Modifications non enregistrées</translation>
+  <translation id="firstname">Prénom</translation>
+  <translation id="lastname">Nom de famille</translation>
+  <translation id="email">Email</translation>
+  <translation id="passwordMinLength">Le mot de passe doit contenir au moins 8 caractères</translation>
+  <translation id="passwordLowerCase">Le mot de passe doit contenir au moins une lettre minuscule</translation>
+  <translation id="passwordUpperCase">Le mot de passe doit contenir au moins une lettre majuscule</translation>
+  <translation id="passwordNumbers">Le mot de passe doit contenir au moins un chiffre</translation>
+  <translation id="passwordSpecialCharacter">Le mot de passe doit contenir au moins un caractère spécial</translation>
+  <translation id="passwordNotEqual">Les mots de passe doivent correspondre</translation>
+  <translation id="startPortal">Démarrer le portail</translation>
+  <translation id="loginInProgress">Connextion en cours...</translation>
+  <translation id="changeAccount"><ph name="START_PARAGRAPH"><ex>&lt;p&gt;</ex>&lt;p&gt;</ph>Changer de compte<ph name="CLOSE_PARAGRAPH"><ex>&lt;/p&gt;</ex>&lt;/p&gt;</ph></translation>
+  <translation id="noResult">Aucun résultat à votre recherche</translation>
+  <translation id="changePassword">Changer le mot de passe</translation>
+  <translation id="currentPassword">Mot de passe actuel</translation>
+  <translation id="newPassword">Nouveau mot de passe</translation>
+  <translation id="confirmNewPassword">Confirmer le mot de passe</translation>
+  <translation id="cancel">Annuler</translation>
+  <translation id="save">Enregister</translation>
+  <translation id="home">Accueil</translation>
+  <translation id="schedule" desc="A bit long. Could also be &quot;Calendrier&quot; (calendar) or &quot;Programme&quot; (program)">Emploi du temps</translation>
+  <translation id="tasks">Tâches</translation>
+  <translation id="places">Lieux</translation>
+  <translation id="settings">Réglages</translation>
+  <translation id="userManagement">Gestion des utilisateurs</translation>
+  <translation id="changeProfilePicture">Changer la photo de profile</translation>
+  <translation id="showPicture">Montrer la photo</translation>
+  <translation id="recordPicture">Prendre une photo</translation>
+  <translation id="uploadPicture">Charger une photo</translation>
+  <translation id="deletePicture">Supprimer la photo</translation>
+  <translation id="editUserProfile">Editer le profil utilisateur</translation>
+  <translation id="phone">Numéro de téléphone</translation>
+  <translation id="birthDate">Date de naissance</translation>
+  <translation id="street">Rue</translation>
+  <translation id="postCode">Code postal</translation>
+  <translation id="place">Ville</translation>
+  <translation id="profile">Profil</translation>
+  <translation id="logout">Déconnexion</translation>
+  <translation id="accounts">Comptes</translation>
+  <translation id="takePicture">Prendre une photo</translation>
+  <translation id="checkingCamera">Vérification de la caméra...</translation>
+  <translation id="crop">Recadrer</translation>
+  <translation id="imageSaved">Photo enregistrée</translation>
+  <translation id="close">Fermer</translation>
+  <translation id="changePicture">Changer la photo</translation>
+  <translation id="none">Aucune</translation>
+  <translation id="delete">Supprimer</translation>
+  <translation id="confirmDeleteTaskTitle">Supprimer tâche</translation>
+  <translation id="confirmDeleteTask">Êtes-vous sûr de vouloir supprimer cette tâche ?</translation>
+  <translation id="task">Tâche</translation>
+  <translation id="pictureIsRequired">*Photo requise</translation>
+  <translation id="taskDetails">Détail de la tâche</translation>
+  <translation id="name">Nom</translation>
+  <translation id="defaultDuration">Durée défaut</translation>
+  <translation id="steps">Etape</translation>
+  <translation id="addStep">Ajouter une étape</translation>
+  <translation id="emergencyContacts">Contacts d&apos;urgence</translation>
+  <translation id="useTaskContacts">Utiliser d&apos;autres contact que ceux des paramètres</translation>
+  <translation id="contact1">Contact un</translation>
+  <translation id="contact2">Contact deux</translation>
+  <translation id="chooseThisLocation">Choisir cette localisation ?</translation>
+  <translation id="confirmDeletePlaceTitle">Supprimer lieu</translation>
+  <translation id="confirmDeletePlace">Êtes-vous sur de vouloir supprimer ce lieu ?</translation>
+  <translation id="placeDetails">Détails du lieu</translation>
+  <translation id="placeSelection">Sélection du lieu</translation>
+  <translation id="centerOnSelection">Centrer sur séléction</translation>
+  <translation id="showCurrentLocation">Montrer localication actuelle</translation>
+  <translation id="newUser">Nouvel utilisateur</translation>
+  <translation id="inviteOnCreation">Envoyer invitation pour le compte</translation>
+  <translation id="create">Créer</translation>
+  <translation id="editUser">Editer utilisateur</translation>
+  <translation id="user">Utilisateur</translation>
+  <translation id="deactivate">Désactiver</translation>
+  <translation id="activate">Activer</translation>
+  <translation id="enabled">Actif</translation>
+  <translation id="disabled">Inactif</translation>
+  <translation id="lastLogin">Dernière connexion à</translation>
+  <translation id="searchUser">Rechercher utilisateur</translation>
+  <translation id="notInvited" desc="Context?">Non invité</translation>
+  <translation id="invited">Invité</translation>
+  <translation id="expired">Expiré</translation>
+  <translation id="declined">Refusé</translation>
+  <translation id="accepted">Accepté</translation>
+  <translation id="status">Statut</translation>
+  <translation id="lastLoginTitle">Dernière connexion</translation>
+  <translation id="edit">Editer</translation>
+  <translation id="sendInvitation">Envoyer invitation</translation>
+  <translation id="reinvite">Renvoyer invitation</translation>
+  <translation id="oneWeekEarlier">1 semaine plus tôt</translation>
+  <translation id="oneWeekLater">1 semaine plus tard</translation>
+  <translation id="createTemplate">Créé un modèle depuis ce jour</translation>
+  <translation id="templateName">Nom du modèle</translation>
+  <translation id="fixErrorsOutsideOfDialog">Veuillez ajuster l&apos;emploi du temps de la journée pour régler les erreurs et recommencez.</translation>
+  <translation id="scheduleDay">Programmer une journée</translation>
+  <translation id="createDayTemplate">Créer une journée modèle</translation>
+  <translation id="details">Détails</translation>
+  <translation id="start">Commencer</translation>
+  <translation id="end">Terminer</translation>
+  <translation id="overlappingTasks">Tâches superposées</translation>
+  <translation id="startAfterEnd">Début situé après la fin</translation>
+  <translation id="remove">Retirer tâche</translation>
+  <translation id="apply">Appliquer</translation>
+  <translation id="add">Ajouter</translation>
+  <translation id="confirmDeleteTemplateTitle">Supprimer le modèle</translation>
+  <translation id="confirmDeleteTemplate">Êtes-vous sur de vouloir supprimer ce modèle ?</translation>
+  <translation id="dayName">Nom de la journée</translation>
+  <translation id="navigate">Naviguer</translation>
+  <translation id="navigateSettingsDesc">Configurer les lieux permanents affichés sur la page de navigation de l&apos;application</translation>
+  <translation id="place1" desc="Not sure to understand this one">Baisser le lieu de gauche</translation>
+  <translation id="place2">Baisser le lieu de droite</translation>
+  <translation id="emergencyHelpTexts">Textes en cas d&apos;urgence</translation>
+  <translation id="emergencyHelpTextsDesc">Configurer les messages affichés sur l&apos;écran d&apos;urgence</translation>
+  <translation id="emergencyLinkHint">Pour ajouter un lieu au texte d&apos;aide, utilisez [text](link).
+Exemple: [google](https://google.com)</translation>
+  <translation id="bad">Mal</translation>
+  <translation id="preview" desc="depends on the context. Aperçu (like previewing a text) or beta">Aperçu</translation>
+  <translation id="improving">Améliorer</translation>
+  <translation id="emergencyContactsDesc">Configurer les personnes notifiées par l&apos;urgence</translation>
+  <translation id="gallery"/>
+  <translation id="editPermissionGroup"/>
+  <translation id="searchPermissionGroup"/>
+  <translation id="earliestEditableTime"/>
+  <translation id="confirmDeletePictureTitle"/>
+  <translation id="confirmDeletePicture"/>
+  <translation id="noDescription"/>
+  <translation id="picture"/>
+  <translation id="pictureProperties"/>
+  <translation id="description"/>
+  <translation id="pictureTags"/>
+  <translation id="addTag"/>
+  <translation id="tagConfidence"/>
+  <translation id="manualEdit"/>
+  <translation id="resendInvitation"/>
+</translationbundle>

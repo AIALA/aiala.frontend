@@ -1,0 +1,1140 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "shared": {
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/src/test.ts",
+            "tsConfig": "libs/shared/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/tsconfig.lib.json",
+              "libs/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "public": {
+      "root": "apps/public/",
+      "sourceRoot": "apps/public/src",
+      "projectType": "application",
+      "prefix": "msft-aiala",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        },
+        "@xpdo/schematics": {
+          "appConfig": {
+            "name": "appConfig"
+          },
+          "invitationRequest": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/public",
+            "index": "apps/public/src/index.html",
+            "main": "apps/public/src/main.ts",
+            "polyfills": "apps/public/src/polyfills.ts",
+            "tsConfig": "apps/public/tsconfig.app.json",
+            "assets": ["apps/public/src/favicon.ico", "apps/public/src/assets"],
+            "styles": ["apps/public/src/styles.scss"]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/public/src/environments/environment.ts",
+                  "with": "apps/public/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "baseHref": "/public/de-ch/"
+            },
+            "de-CH": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/public/src/environments/environment.ts",
+                  "with": "apps/public/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "de-CH",
+              "i18nFile": "apps/public/i18n/messages.de-CH.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/public/de-ch",
+              "baseHref": "/public/de-ch/"
+            },
+            "fr-CH": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/public/src/environments/environment.ts",
+                  "with": "apps/public/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "fr-CH",
+              "i18nFile": "apps/public/i18n/messages.fr-CH.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/public/fr-ch",
+              "baseHref": "/public/fr-ch/"
+            },
+            "es-ES": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/public/src/environments/environment.ts",
+                  "with": "apps/public/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "es-ES",
+              "i18nFile": "apps/public/i18n/messages.es-ES.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/public/es-es",
+              "baseHref": "/public/es-es/"
+            },
+            "it-CH": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/public/src/environments/environment.ts",
+                  "with": "apps/public/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "it-CH",
+              "i18nFile": "apps/public/i18n/messages.it-CH.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/public/it-ch",
+              "baseHref": "/public/it-ch/"
+            },
+            "en-US": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/public/src/environments/environment.ts",
+                  "with": "apps/public/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "en-US",
+              "i18nFile": "apps/public/i18n/messages.en-US.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/public/en-us",
+              "baseHref": "/public/en-us/"
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "public:build",
+            "hmrWarning": false,
+            "hmr": true,
+            "port": 4567
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "public:build:production"
+            },
+            "en-us": {
+              "browserTarget": "public:build:en-US"
+            },
+            "de-ch": {
+              "browserTarget": "public:build:de-CH"
+            },
+            "fr-ch": {
+              "browserTarget": "public:build:fr-CH"
+            },
+            "es-es": {
+              "browserTarget": "public:build:es-ES"
+            },
+            "it-ch": {
+              "browserTarget": "public:build:it-CH"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "public:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/public/src/test.ts",
+            "polyfills": "apps/public/src/polyfills.ts",
+            "tsConfig": "apps/public/tsconfig.spec.json",
+            "karmaConfig": "apps/public/karma.conf.js",
+            "styles": ["apps/public/src/styles.scss"],
+            "assets": ["apps/public/src/favicon.ico", "apps/public/src/assets"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/public/tsconfig.app.json",
+              "apps/public/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "portal": {
+      "root": "apps/portal/",
+      "sourceRoot": "apps/portal/src",
+      "projectType": "application",
+      "prefix": "msft-aiala",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        },
+        "@xpdo/schematics": {
+          "appConfig": {
+            "name": "appConfig"
+          },
+          "invitationAccept": true,
+          "userManagement": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/portal",
+            "index": "apps/portal/src/index.html",
+            "main": "apps/portal/src/main.ts",
+            "polyfills": "apps/portal/src/polyfills.ts",
+            "tsConfig": "apps/portal/tsconfig.app.json",
+            "assets": [
+              "apps/portal/src/favicon.ico",
+              "apps/portal/src/assets",
+              "apps/portal/src/silent_renew.html"
+            ],
+            "styles": [
+              "apps/portal/src/styles.scss",
+              "node_modules/jquery-ui-dist/jquery-ui.min.css",
+              "node_modules/pivottable/dist/pivot.css",
+              "node_modules/azure-maps-control/dist/atlas.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery-ui-dist/jquery-ui.min.js",
+              "node_modules/d3/dist/d3.min.js",
+              "node_modules/plotly.js/dist/plotly.min.js",
+              "node_modules/pivottable/dist/pivot.min.js",
+              "node_modules/pivottable/dist/d3_renderers.min.js",
+              "node_modules/pivottable/dist/plotly_renderers.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/portal/src/environments/environment.ts",
+                  "with": "apps/portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "baseHref": "/public/de-ch/"
+            },
+            "de-CH": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/portal/src/environments/environment.ts",
+                  "with": "apps/portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "de-CH",
+              "i18nFile": "apps/portal/i18n/messages.de-CH.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/portal/de-ch",
+              "baseHref": "/portal/de-ch/"
+            },
+            "fr-CH": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/portal/src/environments/environment.ts",
+                  "with": "apps/portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "fr-CH",
+              "i18nFile": "apps/portal/i18n/messages.fr-CH.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/portal/fr-ch",
+              "baseHref": "/portal/fr-ch/"
+            },
+            "es-ES": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/portal/src/environments/environment.ts",
+                  "with": "apps/portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "es-ES",
+              "i18nFile": "apps/portal/i18n/messages.es-ES.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/portal/es-es",
+              "baseHref": "/portal/es-es/"
+            },
+            "it-CH": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/portal/src/environments/environment.ts",
+                  "with": "apps/portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "it-CH",
+              "i18nFile": "apps/portal/i18n/messages.it-CH.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/portal/it-ch",
+              "baseHref": "/portal/it-ch/"
+            },
+            "en-US": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/portal/src/environments/environment.ts",
+                  "with": "apps/portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "i18nLocale": "en-US",
+              "i18nFile": "apps/portal/i18n/messages.en-US.xtb",
+              "i18nFormat": "xtb",
+              "outputPath": "dist/wwwroot/portal/en-us",
+              "baseHref": "/portal/en-us/"
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "portal:build",
+            "hmrWarning": false,
+            "hmr": true,
+            "port": 4567
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "portal:build:production"
+            },
+            "en-us": {
+              "browserTarget": "portal:build:en-US"
+            },
+            "de-ch": {
+              "browserTarget": "portal:build:de-CH"
+            },
+            "fr-ch": {
+              "browserTarget": "portal:build:fr-CH"
+            },
+            "es-es": {
+              "browserTarget": "portal:build:es-ES"
+            },
+            "it-ch": {
+              "browserTarget": "portal:build:it-CH"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "portal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/portal/src/test.ts",
+            "polyfills": "apps/portal/src/polyfills.ts",
+            "tsConfig": "apps/portal/tsconfig.spec.json",
+            "karmaConfig": "apps/portal/karma.conf.js",
+            "styles": ["apps/portal/src/styles.scss"],
+            "assets": ["apps/portal/src/favicon.ico", "apps/portal/src/assets"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/portal/tsconfig.app.json",
+              "apps/portal/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "register": {
+      "root": "libs/register",
+      "sourceRoot": "libs/register/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/register/src/test.ts",
+            "tsConfig": "libs/register/tsconfig.spec.json",
+            "karmaConfig": "libs/register/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/register/tsconfig.lib.json",
+              "libs/register/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "intro": {
+      "root": "libs/intro",
+      "sourceRoot": "libs/intro/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/intro/src/test.ts",
+            "tsConfig": "libs/intro/tsconfig.spec.json",
+            "karmaConfig": "libs/intro/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/intro/tsconfig.lib.json",
+              "libs/intro/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "tasks": {
+      "root": "libs/tasks",
+      "sourceRoot": "libs/tasks/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/tasks/src/test.ts",
+            "tsConfig": "libs/tasks/tsconfig.spec.json",
+            "karmaConfig": "libs/tasks/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tasks/tsconfig.lib.json",
+              "libs/tasks/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "error": {
+      "root": "libs/error",
+      "sourceRoot": "libs/error/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/error/src/test.ts",
+            "tsConfig": "libs/error/tsconfig.spec.json",
+            "karmaConfig": "libs/error/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/error/tsconfig.lib.json",
+              "libs/error/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "picture": {
+      "root": "libs/picture",
+      "sourceRoot": "libs/picture/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/picture/src/test.ts",
+            "tsConfig": "libs/picture/tsconfig.spec.json",
+            "karmaConfig": "libs/picture/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/picture/tsconfig.lib.json",
+              "libs/picture/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "schedule": {
+      "root": "libs/schedule",
+      "sourceRoot": "libs/schedule/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/schedule/src/test.ts",
+            "tsConfig": "libs/schedule/tsconfig.spec.json",
+            "karmaConfig": "libs/schedule/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/schedule/tsconfig.lib.json",
+              "libs/schedule/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "invitation": {
+      "root": "libs/invitation",
+      "sourceRoot": "libs/invitation/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/invitation/src/test.ts",
+            "tsConfig": "libs/invitation/tsconfig.spec.json",
+            "karmaConfig": "libs/invitation/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/invitation/tsconfig.lib.json",
+              "libs/invitation/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "user-profile": {
+      "root": "libs/user-profile",
+      "sourceRoot": "libs/user-profile/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/user-profile/src/test.ts",
+            "tsConfig": "libs/user-profile/tsconfig.spec.json",
+            "karmaConfig": "libs/user-profile/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/user-profile/tsconfig.lib.json",
+              "libs/user-profile/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "password-reset": {
+      "root": "libs/password-reset",
+      "sourceRoot": "libs/password-reset/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/password-reset/src/test.ts",
+            "tsConfig": "libs/password-reset/tsconfig.spec.json",
+            "karmaConfig": "libs/password-reset/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/password-reset/tsconfig.lib.json",
+              "libs/password-reset/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "settings": {
+      "root": "libs/settings",
+      "sourceRoot": "libs/settings/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/settings/src/test.ts",
+            "tsConfig": "libs/settings/tsconfig.spec.json",
+            "karmaConfig": "libs/settings/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/settings/tsconfig.lib.json",
+              "libs/settings/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "user-controls": {
+      "root": "libs/user-controls",
+      "sourceRoot": "libs/user-controls/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/user-controls/src/test.ts",
+            "tsConfig": "libs/user-controls/tsconfig.spec.json",
+            "karmaConfig": "libs/user-controls/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/user-controls/tsconfig.lib.json",
+              "libs/user-controls/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "places": {
+      "root": "libs/places",
+      "sourceRoot": "libs/places/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/places/src/test.ts",
+            "tsConfig": "libs/places/tsconfig.spec.json",
+            "karmaConfig": "libs/places/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/places/tsconfig.lib.json",
+              "libs/places/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "user-management": {
+      "root": "libs/user-management",
+      "sourceRoot": "libs/user-management/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/user-management/tsconfig.lib.json",
+              "libs/user-management/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/user-management/src/test.ts",
+            "tsConfig": "libs/user-management/tsconfig.spec.json",
+            "karmaConfig": "libs/user-management/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "gallery": {
+      "root": "libs/gallery",
+      "sourceRoot": "libs/gallery/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/gallery/tsconfig.lib.json",
+              "libs/gallery/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/gallery/src/test.ts",
+            "tsConfig": "libs/gallery/tsconfig.spec.json",
+            "karmaConfig": "libs/gallery/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "documents": {
+      "root": "libs/documents",
+      "sourceRoot": "libs/documents/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/documents/tsconfig.lib.json",
+              "libs/documents/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/documents/src/test.ts",
+            "tsConfig": "libs/documents/tsconfig.spec.json",
+            "karmaConfig": "libs/documents/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "codes": {
+      "root": "libs/codes",
+      "sourceRoot": "libs/codes/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/codes/tsconfig.lib.json",
+              "libs/codes/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/codes/src/test.ts",
+            "tsConfig": "libs/codes/tsconfig.spec.json",
+            "karmaConfig": "libs/codes/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "reports": {
+      "root": "libs/reports",
+      "sourceRoot": "libs/reports/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/reports/tsconfig.lib.json",
+              "libs/reports/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/reports/src/test.ts",
+            "tsConfig": "libs/reports/tsconfig.spec.json",
+            "karmaConfig": "libs/reports/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "azure": {
+      "root": "libs/azure",
+      "sourceRoot": "libs/azure/src",
+      "projectType": "library",
+      "prefix": "msft-aiala",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/azure/tsconfig.lib.json",
+              "libs/azure/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/azure/src/test.ts",
+            "tsConfig": "libs/azure/tsconfig.spec.json",
+            "karmaConfig": "libs/azure/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@xpdo/schematics",
+    "packageManager": "npm"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "portal"
+}

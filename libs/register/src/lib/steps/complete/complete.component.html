@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-title i18n="@@registrationTitle">Registration</mat-card-title>
+  <mat-card-content>
+    <section *ngIf="(registeredUser$ | async) as registeredUser">
+      <p i18n="@@registrationComplete">
+        Congratulations, you have successfully registered yourself on the AIALA platform.
+      </p>
+      <p>
+        <span i18n="@@confirmationLink"
+        >You will receive a confirmation link via email on:</span
+        >&nbsp;<br/><strong>{{ registeredUser.email }}</strong>
+      </p>
+    </section>
+  </mat-card-content>
+</mat-card>

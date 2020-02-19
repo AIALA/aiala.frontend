@@ -1,0 +1,45 @@
+<mat-toolbar xpdoDynamicDialogToolbar>
+  <ng-container [ngTemplateOutlet]="dialogData.title"></ng-container>
+</mat-toolbar>
+<div class="container" fxLayout="column" fxLayoutAlign="space-between start">
+  <div class="content">
+    <ng-container [ngTemplateOutlet]="dialogData.text"></ng-container>
+  </div>
+  <div fxLayoutAlign="end end" fxLayoutGap="10px" class="action-buttons">
+    <button
+      mat-stroked-button
+      [color]="dialogData.buttonColor"
+      [mat-dialog-close]="false"
+      i18n="@@no"
+    >
+      No
+    </button>
+    <button
+      mat-raised-button
+      [color]="dialogData.buttonColor"
+      [mat-dialog-close]="true"
+      i18n="@@yes"
+    >
+      Yes
+    </button>
+  </div>
+</div>
+
+<ng-template #unsavedText>
+  <span i18n="@@discardUnsavedChanges">Discard all unsaved changes?</span>
+</ng-template>
+
+<ng-template #unsavedTitle>
+  <span i18n="@@unsavedChanges">Unsaved changes</span>
+</ng-template>
+
+<ng-template #unauthorizedText>
+  <span i18n="@@reloadBecauseOfUnauthorized">
+    Your login expired. This may have different cause, most likely inactivity.
+    Until the page is reloaded, you won't be able to access the app. Do you want to reload the page?
+  </span>
+</ng-template>
+
+<ng-template #unauthorizedTitle>
+  <span i18n="@@loginExpired">Login expired</span>
+</ng-template>

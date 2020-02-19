@@ -1,0 +1,33 @@
+<mat-toolbar xpdoDynamicDialogToolbar>
+  <span fxFlex i18n="@@editPermissionGroup">Permissions</span>
+  <xpdo-search-toolbar
+    i18n-placeholder="@@searchPermissionGroup"
+    placeholder="Search permission"
+    mode="mobile"
+    [formControl]="filter"
+  >
+  </xpdo-search-toolbar>
+</mat-toolbar>
+<div class="permission-group-container" fxLayout="column">
+  <mat-selection-list fxFlex>
+    <mat-list-option
+      *ngFor="let permissionGroup of (filteredUserPermissionGroups$ | async)"
+      [selected]="permissionGroup.isAssigned"
+      [value]="permissionGroup"
+    >
+      <span>{{ permissionGroup.name }}</span>
+    </mat-list-option>
+  </mat-selection-list>
+
+  <div class="actions" fxLayoutAlign="end">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="save()"
+      i18n="@@save"
+      [xpdoProgressSpinner]="isSaving$ | async"
+    >
+      Save
+    </button>
+  </div>
+</div>

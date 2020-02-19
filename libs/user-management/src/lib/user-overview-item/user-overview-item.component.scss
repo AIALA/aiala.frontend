@@ -1,0 +1,124 @@
+@import '../variables';
+
+:host() {
+  $card-padding: 5px;
+
+  $avatar-image-size: 60px;
+  $padding: 10px;
+  $margin: 20px;
+
+  width: 100%;
+
+  mat-card {
+    padding: $card-padding;
+    height: calc(100% - #{$card-padding * 2});
+
+    .user-detail-information {
+      padding-right: 10px;
+
+      p.title {
+        $width: $avatar-image-size + $padding + $margin;
+        width: $width;
+        min-width: $width;
+        max-width: $width;
+        font-size: 0.9em;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.1em;
+        font-weight: 300;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+        &.invitation-status {
+          text-transform: lowercase;
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    .user-header {
+      width: 100%;
+
+      .user-header-information {
+        width: calc(100% - (#{$avatar-image-size} + #{$padding} * 2 + #{$margin}));
+
+        .user-name {
+          width: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          margin-bottom: 0;
+        }
+      }
+
+      .user-avatar-wrapper {
+        margin-right: $margin;
+        padding: $padding;
+        padding-bottom: 0;
+
+        .user-avatar {
+          height: $avatar-image-size;
+          width: $avatar-image-size;
+        }
+      }
+    }
+
+    .user-body {
+      width: 100%;
+      padding-top: $padding;
+      padding-bottom: $card-padding;
+
+      .user-last-login {
+        font-size: 0.9em;
+        font-style: italic;
+        margin: 0;
+      }
+    }
+
+    .user-status {
+      margin: 7px 0;
+      font-size: 0.7em;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: 1px solid;
+      padding: 3px;
+      border-radius: 4px;
+
+
+      &.enabled {
+        $enabled: map-get($status-color, enabled);
+        color: $enabled;
+        border-color: $enabled;
+      }
+
+      &.permission {
+        $primary: mat-color($app-primary, 700);
+        color: $primary;
+        border-color: $primary;
+      }
+
+      &.disabled,
+      &.emergency-contact {
+        $disabled: map-get($status-color, disabled);
+        color: $disabled;
+        border-color: $disabled;
+      }
+    }
+  }
+
+  mat-card-content {
+    padding-left: $padding;
+    display: flex;
+  }
+
+  mat-card:hover {
+    cursor: pointer;
+  }
+
+  mat-card:focus {
+    outline: none;
+  }
+}

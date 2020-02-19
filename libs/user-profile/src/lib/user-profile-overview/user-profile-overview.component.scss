@@ -1,0 +1,40 @@
+:host() {
+  $default-margin: 5px 0 0 0;
+
+  .profile-header {
+    height: auto;
+    padding-bottom: 16px;
+
+    $font-size: 15px;
+
+    .email,
+    .pers-id {
+      margin: $default-margin;
+      font-size: $font-size;
+      line-height: $font-size;
+      font-weight: 300;
+    }
+  }
+
+  .profile-container {
+    padding: 16px;
+
+    .profile-information {
+      margin-bottom: 30px;
+      min-width: 180px;
+
+      .profile-information-title {
+        margin: 0;
+        font-style: italic;
+        font-weight: 300;
+        padding-right: 16px;
+      }
+
+      .profile-information-value {
+        margin: $default-margin;
+        padding-right: 16px;
+      }
+    }
+
+  }
+}

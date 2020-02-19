@@ -1,0 +1,106 @@
+@import '../variables';
+
+:host() {
+  $padding: 16px;
+  $font-size: 16px;
+  $default-margin: 5px 0 0 0;
+
+  .user-header {
+    height: auto;
+    width: 100%;
+
+    .user-information {
+      width: 100%;
+      position: relative;
+
+      .name {
+        min-height: 32px;
+        line-height: 32px;
+      }
+
+      .email {
+        font-size: $font-size;
+        line-height: $font-size;
+        font-weight: 300;
+        min-height: 15px;
+        margin: 0;
+        padding-right: 16px;
+      }
+
+      .user-avatar {
+        height: 120px;
+        width: 120px;
+
+        @media screen and (min-width: 599px) {
+          margin-bottom: $padding;
+        }
+      }
+
+      .user-last-login {
+        min-height: 37px;
+        p {
+          font-weight: 200;
+          font-style: italic;
+          font-size: 13px;
+          margin: 0;
+        }
+      }
+
+      .user-status {
+        min-height: 30px;
+        p {
+          position: absolute;
+          right: -$padding;
+          top: 0;
+          padding-right: 20px;
+          padding-left: 15px;
+          line-height: 30px;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+          font-style: italic;
+          margin: 0;
+          font-size: 15px;
+          font-weight: 300;
+        }
+
+        .enabled {
+          background-color: map-get($status-color, enabled);
+        }
+
+        .disabled {
+          background-color: map-get($status-color, disabled);
+        }
+      }
+    }
+  }
+
+  .container {
+    padding: $padding;
+
+    .user-information {
+      margin-bottom: 30px;
+      min-width: 180px;
+
+      .user-information-title {
+        margin: 0;
+        font-style: italic;
+        font-weight: 300;
+        padding-right: 16px;
+      }
+
+      .user-information-value {
+        margin: $default-margin;
+        padding-right: 16px;
+      }
+    }
+
+    h4 {
+      margin: $default-margin;
+    }
+
+    .hint {
+      margin: $default-margin;
+      font-style: italic;
+    }
+  }
+}

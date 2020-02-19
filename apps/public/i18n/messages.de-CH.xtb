@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="de-ch">
+  <translation id="next">Weiter</translation>
+  <translation id="loading">Lade Daten...</translation>
+  <translation id="no">Nein</translation>
+  <translation id="yes">Ja</translation>
+  <translation id="discardUnsavedChanges">Alle ungespeicherten Änderungen verwerfen?</translation>
+  <translation id="unsavedChanges">Ungespeicherte Änderungen</translation>
+  <translation id="selectLanguage">Sprache wählen</translation>
+  <translation id="firstname">Vorname</translation>
+  <translation id="lastname">Nachname</translation>
+  <translation id="email">Email</translation>
+  <translation id="password">Password</translation>
+  <translation id="passwordMinLength">Das Passwort muss mindestens 8 Zeichen lang sein</translation>
+  <translation id="passwordLowerCase">Das Passwort muss mindestens einen Kleinbuchstaben enthalten</translation>
+  <translation id="passwordUpperCase">Das Passwort muss mindestens einen Grossbuchstaben enthalten</translation>
+  <translation id="passwordNumbers">Das Passwort muss mindesteins eine Zahl enthalten</translation>
+  <translation id="passwordSpecialCharacter">Das Passwort muss mindesteins ein Spezialzeichen enthalten</translation>
+  <translation id="passwordConfirmation">Passwort bestätigen</translation>
+  <translation id="passwordNotEqual">Passwörter müssen übereinstimmen</translation>
+  <translation id="back">Zurück</translation>
+  <translation id="register">Registrieren</translation>
+  <translation id="registrationTitle">Registration</translation>
+  <translation id="registrationComplete">Glückwunsch, du hast dich erfolgreich bei der AIALA Plattform angemeldet.</translation>
+  <translation id="confirmationLink">Sie werden einen Bestätitungslink auf der folgenden Email-Addresse erhalten:</translation>
+  <translation id="confirmRegistrationTitle">Registration bestätigen</translation>
+  <translation id="confirmingRegistration">Registration wird bestätigt...</translation>
+  <translation id="confirmRegistrationErrorTitle">Registration nicht erfolgreich</translation>
+  <translation id="confirmRegistrationError">Die Registration konnte nicht bestätigt werden.</translation>
+  <translation id="confirmRegistrationSuccessTitle">Registration bestätigt</translation>
+  <translation id="confirmRegistrationSuccess">Danke, dass Sie Ihre Registration bestätigt haben.
+Ihr Konto ist nun aktiv und Sie können sich einloggen.</translation>
+  <translation id="gotoLogin">Zum login</translation>
+  <translation id="invitationDeclined">Einladung abgelehnt</translation>
+  <translation id="invitationTitle">Einladung</translation>
+  <translation id="receiver">An</translation>
+  <translation id="defaultInvitationMessage">Möchten Sie die Einladung annehmen?</translation>
+  <translation id="decline">Ablehnen</translation>
+  <translation id="accept">Annehmen</translation>
+  <translation id="newAccount">Neues Konto</translation>
+  <translation id="existingAccount">Bestehendes Konto</translation>
+  <translation id="invitationRegisterTitle">Konto eröffnen</translation>
+  <translation id="passwordResetTitle">Passwort zurücksetzen</translation>
+  <translation id="requestPasswordReset">Bitte geben Sie Ihre Email-Addresse ein, um Ihr Passwort zurückzusetzen.</translation>
+  <translation id="emailSentOn">Wir haben eine Email gesendet an:</translation>
+  <translation id="followInstructionsInMail">Bitte folgen Sie den Anweisungen in diesem Email.</translation>
+  <translation id="reset">Zurücksetzen</translation>
+  <translation id="resetPassword">Bitte geben Sie Ihr neues Passwort ein.</translation>
+  <translation id="passwordReset">Ihr Passwort wurde zurückgesetzt.</translation>
+  <translation id="8298333184054476827" desc="@registrationTitle">Registration</translation>
+</translationbundle>

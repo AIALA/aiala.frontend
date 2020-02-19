@@ -1,0 +1,10 @@
+<mat-chip-list>
+  <mat-chip
+    *ngFor="let permissionGroup of (assignedUserPermissionGroups$ | async)"
+    [color]="permissionGroup.isAssigned ? 'accent' : null"
+    [selected]="permissionGroup.isAssigned"
+    disableRipple
+  >
+    {{ permissionGroup.name }}
+  </mat-chip>
+</mat-chip-list>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="fr-ch">
+  <translation id="next">Suivant</translation>
+  <translation id="loading">Chargement...</translation>
+  <translation id="no">Non</translation>
+  <translation id="yes">Oui</translation>
+  <translation id="discardUnsavedChanges">Ignorer les modifications ?</translation>
+  <translation id="unsavedChanges">Modifications non enregistrées</translation>
+  <translation id="selectLanguage">Sélectionnez le langage</translation>
+  <translation id="firstname">Prénom</translation>
+  <translation id="lastname">Nom de famille</translation>
+  <translation id="email">Email</translation>
+  <translation id="password">Mot de passe</translation>
+  <translation id="passwordMinLength">Le mot de passe doit contenir au moins 8 caractères</translation>
+  <translation id="passwordLowerCase">Le mot de passe doit contenir au moins une lettre minuscule</translation>
+  <translation id="passwordUpperCase">Le mot de passe doit contenir au moins une lettre majuscule</translation>
+  <translation id="passwordNumbers">Le mot de passe doit contenir au moins un chiffre</translation>
+  <translation id="passwordSpecialCharacter">Le mot de passe doit contenir au moins un caractère spécial</translation>
+  <translation id="passwordConfirmation">Confirmer le mot de passe
+</translation>
+  <translation id="passwordNotEqual">Les mots de passe doivent correspondre</translation>
+  <translation id="back">Retour</translation>
+  <translation id="register">Enregistrer</translation>
+  <translation id="registrationTitle">Enregistrement</translation>
+  <translation id="registrationComplete">Félicitations, vous vous êtes enregistré avec succès sur la plateforme AIALA.</translation>
+  <translation id="confirmationLink">Vous allez recevoir un lien de confirmation par email sur:</translation>
+  <translation id="confirmRegistrationTitle">Confirmer l&apos;enregistrement</translation>
+  <translation id="confirmingRegistration">L&apos;enregistrement est en cours de confirmation...</translation>
+  <translation id="confirmRegistrationErrorTitle">Enregistrement échoué</translation>
+  <translation id="confirmRegistrationError">L&apos;enregistrement n&apos;a pas pu être finalisé</translation>
+  <translation id="confirmRegistrationSuccessTitle">Enregistrement finalisé</translation>
+  <translation id="confirmRegistrationSuccess">Merci d&apos;avoir confirmé votre enregistrement.
+Votre compte est activé et vous pouvez vous connecter.</translation>
+  <translation id="gotoLogin">Vers la connexion</translation>
+  <translation id="invitationDeclined">Invitation refusée</translation>
+  <translation id="invitationTitle">Invitation</translation>
+  <translation id="receiver">À</translation>
+  <translation id="defaultInvitationMessage">Souhaitez-vous accepter l&apos;invitation ?</translation>
+  <translation id="decline">Refuser</translation>
+  <translation id="accept">Accepter</translation>
+  <translation id="newAccount">Nouveau Compte</translation>
+  <translation id="existingAccount">Compte existant</translation>
+  <translation id="invitationRegisterTitle">Créer un compte</translation>
+  <translation id="passwordResetTitle">Réinitialiser le mot de passe</translation>
+  <translation id="requestPasswordReset">Pour réinitialiser votre mot de passe, veuillez entrer l&apos;adresse email de connexion.</translation>
+  <translation id="emailSentOn">Nous avons envoyé un email à:</translation>
+  <translation id="followInstructionsInMail">Veuillez suivre les instructions de cet email.</translation>
+  <translation id="reset">Réinitialiser. </translation>
+  <translation id="resetPassword">Veuillez entrer votre mot de passe.</translation>
+  <translation id="passwordReset">Votre mot de passe a été réinitialisé.</translation>
+  <translation id="8298333184054476827" desc="@registrationTitle"/>
+</translationbundle>

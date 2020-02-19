@@ -1,0 +1,73 @@
+<mat-dialog-content class="aiala-dialog-content">
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="takeStepForm" [completed]="false">
+      <ng-template *ngIf="dialogData.dialogType === dialogTypes.Camera" matStepLabel i18n="@@takePicture">Take Picture</ng-template>
+      <ng-template *ngIf="dialogData.dialogType === dialogTypes.Upload" matStepLabel i18n="@@uploadPicture">Upload Picture</ng-template>
+
+      <div class="step-container">
+        <ng-container *ngIf="dialogData.dialogType === dialogTypes.Upload; else takePictureContainer">
+          <div fxFlex fxLayoutAlign="end end">
+            <input type="file" class="hidden" (change)="onFileChange($event)" accept="image/jpg,image/png" #pictureSelector>
+            <button mat-raised-button color="primary" (click)="pictureSelector.click()">
+              <mat-icon svgIcon="far:upload" inline></mat-icon>
+              <span i18n="@@uploadPicture">Upload Picture</span>
+            </button>
+          </div>
+        </ng-container>
+
+        <ng-template #takePictureContainer>
+          <div fxFlex fxLayoutGap="10px" fxLayoutAlign="center center" *ngIf="hasCameraPermission === null">
+            <mat-spinner [diameter]="24"></mat-spinner>
+            <span i18n="@@checkingCamera">Checking Camera...</span>
+          </div>
+
+          <div #camera [style.display]="hasCameraPermission === true ? 'block' : 'none'">
+            <div [style.marginBottom.px]="10">
+              <video class="max-w-100p" autoplay #video></video>
+              <canvas #canvas id="canvas" class="hidden"></canvas>
+            </div>
+
+            <div fxFlex fxLayoutAlign="end end">
+              <button mat-raised-button color="primary" (click)="takePicture()">
+                <mat-icon svgIcon="far:camera" inline></mat-icon>
+                <span i18n="@@takePicture">Take picture</span>
+              </button>
+            </div>
+          </div>
+
+          <div *ngIf="hasCameraPermission === false">
+            <span i18n="@@cameraUnavailable">Camera unavailable or permissions denied.</span>
+          </div>
+        </ng-template>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="cropStepForm" [completed]="false">
+      <ng-template matStepLabel i18n="@@crop">Crop</ng-template>
+
+      <div class="step-container">
+        <div>
+          <xpdo-cropper (cropped)="onCroppedPicture($event)" [compressedBlob]="takeStepForm.value.picture" *ngIf="!wasSaved"></xpdo-cropper>
+          <img [src]="croppedPictureSource" alt="Cropped picture" *ngIf="wasSaved">
+          <h5 i18n="@@imageSaved" *ngIf="wasSaved">Image saved</h5>
+        </div>
+
+        <div fxFlex fxLayoutAlign="end end">
+          <button
+            mat-raised-button
+            matStepperNext
+            color="primary"
+            [disabled]="cropStepForm.invalid"
+            (click)="save()"
+            *ngIf="!wasSaved"
+            [xpdoProgressSpinner]="isSaving"
+          >
+            <mat-icon svgIcon="far:save" inline></mat-icon>
+            <span i18n="@@save">Save</span>
+          </button>
+          <button mat-raised-button i18n="@@close" (click)="close()" *ngIf="wasSaved">Close</button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-dialog-content>

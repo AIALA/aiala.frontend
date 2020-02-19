@@ -1,0 +1,45 @@
+@import '../variables';
+
+:host {
+  $padding: 16px;
+
+  .task-header {
+    height: auto;
+    width: 100%;
+
+    .task-information {
+      width: 100%;
+      position: relative;
+
+      .task-name {
+        font-size: $editor-toolbar-font-size;
+        line-height: $editor-toolbar-font-size;
+        font-weight: 300;
+        margin: 0;
+        padding-right: 16px;
+      }
+
+      msft-aiala-thumbnail {
+        height: 120px;
+        width: 120px;
+
+        @media screen and (min-width: 599px) {
+          margin-bottom: $padding;
+        }
+      }
+    }
+  }
+
+  .container {
+    padding: $padding;
+
+    mat-form-field,
+    msft-aiala-user-selector {
+      display: block;
+    }
+
+    .step-container {
+      margin-bottom: 10px;
+    }
+  }
+}

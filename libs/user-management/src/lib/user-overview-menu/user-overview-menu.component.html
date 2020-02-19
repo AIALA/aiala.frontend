@@ -1,0 +1,41 @@
+<button mat-icon-button [matMenuTriggerFor]="userMenu" xpdoClickStopPropagation>
+  <mat-icon svgIcon="fas:ellipsis-v"></mat-icon>
+</button>
+<mat-menu #userMenu>
+  <button mat-menu-item (click)="edit(user.id)">
+    <mat-icon svgIcon="far:pencil"></mat-icon>
+    <span i18n="@@edit">Edit</span>
+  </button>
+  <button
+    mat-menu-item
+    *ngIf="user.invitationStatus === invitationStatus.NotInvited"
+    (click)="sendInvitation(user.id)"
+  >
+    <mat-icon svgIcon="far:envelope" class="mat-menu-icon"></mat-icon>
+    <span i18n="@@sendInvitation">Send invitation</span>
+  </button>
+  <button
+    mat-menu-item
+    *ngIf="
+      user.invitationStatus === invitationStatus.Invited ||
+      user.invitationStatus === invitationStatus.Declined ||
+      user.invitationStatus === invitationStatus.Expired
+    "
+    (click)="sendInvitation(user.id)"
+  >
+    <mat-icon svgIcon="far:envelope" class="mat-menu-icon"></mat-icon>
+    <span i18n="@@reinvite">Reinvite</span>
+  </button>
+  <button mat-menu-item *ngIf="user.enabled" (click)="disable(user.id)">
+    <mat-icon svgIcon="far:lock" class="mat-menu-icon"></mat-icon>
+    <span i18n="@@deactivate">Deactivate</span>
+  </button>
+  <button mat-menu-item *ngIf="!user.enabled" (click)="enable(user.id)">
+    <mat-icon svgIcon="far:unlock" class="mat-menu-icon"></mat-icon>
+    <span i18n="@@activate">Activate</span>
+  </button>
+  <button mat-menu-item *ngIf="!user.enabled" (click)="delete(user.id)">
+    <mat-icon svgIcon="far:trash" class="mat-menu-icon"></mat-icon>
+    <span i18n="@@delete">Delete</span>
+  </button>
+</mat-menu>

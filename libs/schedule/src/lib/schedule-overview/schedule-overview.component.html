@@ -1,0 +1,72 @@
+<mat-toolbar #toolbar="xpdoToolbar" color="primary" xpdoSidenavToolbar>
+  <div fxFlex i18n="@@schedule">Schedule</div>
+</mat-toolbar>
+<div
+  class="container"
+  [xpdoSidenavContent]="toolbar"
+  fxLayout="column"
+>
+  <ng-template #loadingSpinner>
+    <msft-aiala-loading-spinner></msft-aiala-loading-spinner>
+  </ng-template>
+
+  <div fxFlex fxLayoutGap="10px" [style.marginBottom.px]="20" class="buttons">
+    <button mat-raised-button (click)="navigateWeeks(-1)">
+      <mat-icon svgIcon="far:arrow-left" inline></mat-icon>
+      <span i18n="@@oneWeekEarlier">1 week earlier</span>
+    </button>
+    <button mat-raised-button (click)="navigateWeeks(1)">
+      <span i18n="@@oneWeekLater">1 week later</span>
+      <mat-icon class="inline-icon-right" svgIcon="far:arrow-right" inline></mat-icon>
+    </button>
+    <button mat-raised-button (click)="togglePrintMode()" [color]="isPrintMode ? 'warn' : ''">
+        <mat-icon svgIcon="far:file-alt" inline></mat-icon>
+      <span *ngIf="!isPrintMode" i18n="@@printDayOverview">Print day overview</span>
+      <span *ngIf="isPrintMode" i18n="@@cancelSelection">Cancel selection</span>
+    </button>
+  </div>
+
+  <div *ngIf="isPrintMode">
+    <p i18n="@@selectDayForOverview">Select day to print:</p>
+  </div>
+
+  <div class="calendar-container mat-elevation-z1" *ngIf="!(loading$ | async); else loadingSpinner" fxFlex [ngClass]="{'selection-calendar': isPrintMode}">
+    <div *ngFor="let week of (weeks$ | async)" class="week" fxLayout="row" fxLayout.xs="column">
+      <div
+        *ngFor="let day of week"
+        class="day clickable-container" [ngClass]="{today: day.shortDateString === shortDateToday, 'temporary-day': day.isTemporaryEntity}"
+        (click)="onDayClick(day)"
+        fxFlex="1 1 auto" fxFlex.xs="0 0 100%"
+        fxLayoutAlign="space-between"
+        fxLayout="column" fxLayout.xs="row"
+      >
+        <div class="day-header" fxFlex="0 1 auto" fxLayout="column" fxLayoutAlign="start start">
+          <span>
+            {{ day.date | xpdoDateTime }}
+          </span>
+        </div>
+        <div
+          class="day-content"
+          fxFlex.gt-xs="1 1 auto"
+          fxLayoutAlign="center center" fxLayoutAlign.xs="start end"
+          fxLayout="column"
+          fxLayoutGap="10px"
+        >
+          <ng-container *ngIf="!day.isTemporaryEntity; else temporaryDay">
+            <span>
+              {{day.name}}
+            </span>
+            <span>
+              <span class="day-tasks-count">{{ day.tasks.length }}&nbsp;</span>
+              <span i18n="@@tasks">tasks</span>
+            </span>
+          </ng-container>
+
+          <ng-template #temporaryDay>
+            <span i18n="@@noSchedule" class="unscheduled-text">No schedule</span>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

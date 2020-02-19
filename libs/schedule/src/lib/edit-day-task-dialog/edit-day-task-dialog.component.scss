@@ -1,0 +1,21 @@
+:host {
+  height: 100%;
+  flex-direction: column;
+
+  .action-buttons {
+    width: 100%;
+    margin-top: 20px;
+
+    .remove-button {
+      margin-right: auto !important;
+    }
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .container {
+    padding: 16px;
+  }
+}

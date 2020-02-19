@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/apps/public"
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "**/*.ts",
+    "../../libs/register/src/index.ts",
+    "../../libs/invitation/src/index.ts",
+    "../../libs/password-reset/src/index.ts"
+  ]
+}
