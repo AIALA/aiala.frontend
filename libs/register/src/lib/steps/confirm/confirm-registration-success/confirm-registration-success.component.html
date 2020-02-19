@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title i18n="@@confirmRegistrationSuccessTitle">Registration completed</mat-card-title>
+  <mat-card-content>
+    <section>
+      <p i18n="@@confirmRegistrationSuccess">
+        Thank you for confirming your registration.
+        Your account is now active and you can log in.
+      </p>
+    </section>
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="end">
+    <a mat-raised-button color="primary" i18n="@@gotoLogin" [href]="redirectUrl$ | async" target="_self">
+      To the login
+    </a>
+  </mat-card-actions>
+</mat-card>

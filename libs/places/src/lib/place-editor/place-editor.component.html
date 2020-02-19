@@ -1,0 +1,95 @@
+<mat-toolbar #toolbar="xpdoToolbar" color="primary" xpdoSidenavToolbar="child" [fixed]="true">
+  <div fxFlex>
+    <span i18n="@@place">Place</span>
+    <span *ngIf="form.dirty">&nbsp;*</span>
+  </div>
+  <button mat-raised-button (click)="save()" *ngIf="form" [disabled]="form?.invalid" [xpdoProgressSpinner]="saving$ | async">
+    <mat-icon svgIcon="fas:save" inline></mat-icon>
+    <span i18n="@@save">Save</span>
+  </button>
+</mat-toolbar>
+<div [xpdoSidenavContent]="toolbar">
+  <ng-template #loadingSpinner>
+    <div class="container">
+      <msft-aiala-loading-spinner></msft-aiala-loading-spinner>
+    </div>
+  </ng-template>
+
+  <mat-toolbar class="place-header" color="primary" *ngIf="!(loading$ | async); else loadingSpinner">
+    <div class="place-information" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="16px">
+      <div>
+        <msft-aiala-thumbnail
+          [source]="pictureUrl$ | async"
+          [editable]="true"
+          [pictureType]="pictureType"
+          (pictureTaken)="savePicture($event)"
+        ></msft-aiala-thumbnail>
+      </div>
+      <div fxFlex>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h1>{{title}}</h1>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>
+  <div class="container" *ngIf="!(loading$ | async)" fxLayout="column">
+    <form [formGroup]="form" fxFlex fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.gt-md="20px" class="max-w-100p">
+      <section>
+        <div class="editor-heading">
+          <h5 i18n="@@placeDetails">Place Details</h5>
+        </div>
+        <mat-form-field class="w-500 max-w-100p">
+          <input
+            matInput
+            type="text"
+            i18n-placeholder="@@name"
+            name="name"
+            placeholder="Name"
+            formControlName="name"
+            required
+          />
+        </mat-form-field>
+      </section>
+      <section fxFlex="1 1 auto" fxLayout="column">
+        <div class="editor-heading">
+          <h5 i18n="@@placeSelection">Place selection</h5>
+        </div>
+
+        <div fxLayoutGap="10px" class="margin-bottom-children">
+          <button
+            mat-raised-button
+            (click)="centerOnSelection$.next()"
+          >
+            <mat-icon svgIcon="far:map-marker-alt" inline></mat-icon>
+            <span i18n="@@centerOnSelection">Center on selection</span>
+          </button>
+
+          <button
+            mat-raised-button
+            (click)="showCurrentLocation$.next(true)"
+          >
+            <mat-icon svgIcon="far:location" inline></mat-icon>
+            <span i18n="@@showCurrentLocation">Show current location</span>
+          </button>
+
+          <mat-hint i18n="@@placeSelectionHint">Click on map to select location</mat-hint>
+        </div>
+
+        <div [style.marginBottom.px]="10">
+        </div>
+
+        <!-- <msft-aiala-google-map-selector
+          #mapSelector
+          [coordinates]="{latitude: this.form.value.latitude, longitude: this.form.value.longitude}"
+          (coordinatesChange)="onCoordinatesChange($event)"
+        ></msft-aiala-google-map-selector> -->
+        <msft-aiala-map-selector
+          [centerOnSelection$]="centerOnSelection$"
+          [showCurrentLocation$]="showCurrentLocation$"
+          [loadedCoordinates$]="loadedCoordinates$"
+          (coordinatesChange)="onCoordinatesChange($event)"
+        ></msft-aiala-map-selector>
+      </section>
+    </form>
+  </div>
+</div>

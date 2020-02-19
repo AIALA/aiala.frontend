@@ -1,0 +1,12 @@
+<div class="intro-container" fxLayout fxLayoutAlign="center center">
+  <mat-card>
+    <h3 i18n="@@startPortal">Starting Portal</h3>
+    <mat-progress-bar
+      class="example-margin"
+      mode="determinate"
+      [value]="progress | async"
+    >
+    </mat-progress-bar>
+    <p i18n="@@loginInProgress">You are being logged in...</p>
+  </mat-card>
+</div>

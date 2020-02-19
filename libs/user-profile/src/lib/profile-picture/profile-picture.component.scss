@@ -1,0 +1,64 @@
+:host() {
+  $size: 120px;
+  $border-radius: 50%;
+
+  .profile-picture-container {
+    position: relative;
+    width: $size;
+    height: $size;
+
+    .picture {
+      border-radius: $border-radius;
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      object-fit: cover;
+    }
+
+    %overlay {
+      border-radius: $border-radius;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .mobile-overlay {
+      @extend %overlay;
+    }
+
+    .overlay {
+      @extend %overlay;
+      transition: 0.5s ease;
+      color: white;
+      text-align: center;
+      font-weight: 300;
+      cursor: pointer;
+      p.hint {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      &:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    .camera-button {
+      position: absolute;
+      right: -5px;
+      bottom: -5px;
+    }
+  }
+
+  .file-input {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+}

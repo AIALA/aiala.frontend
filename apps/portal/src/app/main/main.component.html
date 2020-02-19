@@ -1,0 +1,89 @@
+<xpdo-sidenav-layout #sidenav>
+  <mat-toolbar xpdo-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()" [style.marginRight.px]="16">
+      <mat-icon svgIcon="far:bars"></mat-icon>
+    </button>
+    <div fxFlex>AIALA</div>
+    <msft-aiala-user-profile-panel
+      *ngIf="!(isMobile | async)"
+    ></msft-aiala-user-profile-panel>
+  </mat-toolbar>
+  <div xpdo-sidenav>
+    <msft-aiala-user-profile-panel
+      *ngIf="(isMobile | async)"
+    ></msft-aiala-user-profile-panel>
+    <xpdo-sidenav-layout-group>
+      <a
+        xpdoSidenavLayoutItem
+        mat-list-item
+        [routerLink]="'/schedule'"
+        routerLinkActive="active"
+        *ifPolicy="'ScheduleManagementPolicy'"
+      >
+        <mat-icon mat-list-icon class="fa-sm" svgIcon="far:calendar"></mat-icon>
+        <p i18n="@@schedule">Schedule</p>
+      </a>
+      <a
+        xpdoSidenavLayoutItem
+        mat-list-item
+        [routerLink]="'/tasks'"
+        routerLinkActive="active"
+        *ifPolicy="'ScheduleManagementPolicy'"
+      >
+        <mat-icon mat-list-icon class="fa-sm" svgIcon="far:list-ul"></mat-icon>
+        <p i18n="@@tasks">Tasks</p>
+      </a>
+      <a
+        xpdoSidenavLayoutItem
+        mat-list-item
+        [routerLink]="'/places'"
+        routerLinkActive="active"
+        *ifPolicy="'ScheduleManagementPolicy'"
+      >
+        <mat-icon mat-list-icon class="fa-sm" svgIcon="far:map"></mat-icon>
+        <p i18n="@@places">Places</p>
+      </a>
+      <a
+        xpdoSidenavLayoutItem
+        mat-list-item
+        [routerLink]="'/gallery'"
+        routerLinkActive="active"
+        *ifPolicy="'ScheduleManagementPolicy'"
+      >
+        <mat-icon mat-list-icon class="fa-sm" svgIcon="far:image"></mat-icon>
+        <p i18n="@@gallery">Gallery</p>
+      </a>
+      <a
+        xpdoSidenavLayoutItem
+        mat-list-item
+        [routerLink]="'/reports'"
+        routerLinkActive="active"
+        *ifPolicy="'ScheduleManagementPolicy'"
+      >
+        <mat-icon mat-list-icon class="fa-sm" svgIcon="far:analytics"></mat-icon>
+        <p i18n="@@reports">Reports</p>
+      </a>
+      <a
+        xpdoSidenavLayoutItem
+        mat-list-item
+        [routerLink]="'/settings'"
+        routerLinkActive="active"
+        *allPolicies="['ManageUsersPolicy','ManageTenantSettingsPolicy']"
+      >
+        <mat-icon mat-list-icon class="fa-sm" svgIcon="far:cog"></mat-icon>
+        <p i18n="@@settings">Settings</p>
+      </a>
+      <a
+        xpdoSidenavLayoutItem
+        mat-list-item
+        [routerLink]="'/user-management'"
+        routerLinkActive="active"
+        *ifPolicy="'UserManagementFeaturePolicy'"
+      >
+        <mat-icon mat-list-icon class="fa-sm" svgIcon="far:users"></mat-icon>
+        <p i18n="@@userManagement">User Management</p>
+      </a>
+    </xpdo-sidenav-layout-group>
+  </div>
+  <router-outlet></router-outlet>
+</xpdo-sidenav-layout>

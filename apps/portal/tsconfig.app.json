@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/apps/portal"
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "**/*.ts",
+    "../../libs/tasks/src/index.ts",
+    "../../libs/user-management/src/index.ts",
+    "../../libs/schedule/src/index.ts",
+    "../../libs/user-profile/src/index.ts",
+    "../../libs/settings/src/tenant/index.ts",
+    "../../libs/places/src/index.ts",
+    "../../libs/user-management/src/index.ts",
+    "../../libs/gallery/src/index.ts",
+    "../../libs/reports/src/index.ts"
+  ]
+}

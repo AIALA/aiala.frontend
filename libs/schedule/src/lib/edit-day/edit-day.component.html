@@ -1,0 +1,81 @@
+<mat-toolbar #toolbar="xpdoToolbar" color="primary" xpdoSidenavToolbar="child" [fixed]="true">
+  <div fxFlex>
+    <span i18n="@@scheduleDay">Schedule Day</span>
+    -
+    <span>{{date$ | async | xpdoDateTime}}</span>
+    <span *ngIf="form.dirty">&nbsp;*</span>
+  </div>
+  <button mat-raised-button (click)="save()" *ngIf="form" [disabled]="form.invalid" [xpdoProgressSpinner]="saving$ | async">
+    <mat-icon svgIcon="fas:save" inline></mat-icon>
+    <span i18n="@@save">Save</span>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="toolbarMenu" xpdoClickStopPropagation>
+    <mat-icon svgIcon="fas:ellipsis-v"></mat-icon>
+  </button>
+
+  <mat-menu #toolbarMenu>
+    <button mat-menu-item (click)="createDayTemplate()" [disabled]="form.invalid" [xpdoProgressSpinner]="savingTemplates$ | async">
+      <mat-icon svgIcon="far:layer-plus"></mat-icon>
+      <span i18n="@@createDayTemplate">Create day template</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<div [xpdoSidenavContent]="toolbar" class="container">
+  <ng-template #loadingSpinner>
+    <msft-aiala-loading-spinner></msft-aiala-loading-spinner>
+  </ng-template>
+
+  <form [formGroup]="form" *ngIf="!(loading$ | async); else loadingSpinner" fxFlex fxLayout="column" class="max-w-100p">
+    <section *ngIf="generalError$ | async; let errors">
+      <msft-aiala-form-error [errors]="errors" class="max-w-600" [style.display]="'block'"></msft-aiala-form-error>
+    </section>
+    <section *ngIf="error$ | async; let errors">
+      <msft-aiala-form-error [errors]="errors" class="max-w-600" [style.display]="'block'"></msft-aiala-form-error>
+    </section>
+
+    <section>
+      <div class="editor-header">
+        <h5 i18n="@@details">Details</h5>
+      </div>
+      <mat-form-field class="w-500 max-w-100p">
+        <input
+          matInput
+          type="text"
+          i18n-placeholder="@@name"
+          name="name"
+          placeholder="Name"
+          formControlName="name"
+          required
+        />
+      </mat-form-field>
+    </section>
+
+    <section fxLayoutGap="15px" fxLayout.gt-md="row" fxLayout="column">
+      <div fxFlex.gt-md="0 1 400px">
+        <div class="editor-header">
+          <h5 i18n="@@schedule">Schedule</h5>
+        </div>
+        <msft-aiala-edit-day-schedule [form]="form" [today]="form.value.date" [editableConfig]="editableConfig"></msft-aiala-edit-day-schedule>
+      </div>
+
+      <div fxFlex>
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <h5 i18n="@@templates">Templates</h5>
+            </ng-template>
+            <br>
+            <msft-aiala-day-templates-overview (applyTemplate)="onApplyTemplate($event)" [editableConfig]="editableConfig"></msft-aiala-day-templates-overview>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <h5 i18n="@@tasks">Tasks</h5>
+            </ng-template>
+            <br>
+            <msft-aiala-edit-day-tasks [form]="form" (addTask)="onAddTask($event)" [editableConfig]="editableConfig"></msft-aiala-edit-day-tasks>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </section>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<mat-toolbar xpdoDynamicDialogToolbar i18n="@@changeAccount">
+  <p fxFlex>Change account</p>
+</mat-toolbar>
+<div class="container" *ngIf="(accounts$ | async) as accounts">
+  <div class="content" fxLayout="column" fxLayoutGap="10px" fxFlex>
+    <mat-form-field [formGroup]="filterForm">
+      <mat-icon matPrefix [style.marginRight.px]="5" svgIcon="far:search" inline></mat-icon>
+      <input matInput formControlName="filterText" type="text" />
+      <button (click)="clearFilter()" matSuffix mat-icon-button>
+        <mat-icon svgIcon="far:times"></mat-icon>
+      </button>
+    </mat-form-field>
+    <div
+      fxLayoutAlign="space-between start"
+      fxLayout="column"
+      class="account-content-wrapper"
+      fxLayoutGap="10px"
+    >
+      <div
+        *ngIf="accounts.length > 0; else noResult"
+        fxLayout="column"
+        class="full-width account-list"
+      >
+        <mat-divider></mat-divider>
+        <mat-action-list
+          *ngFor="let account of accounts"
+          [ngSwitch]="account.selected"
+        >
+          <button
+            mat-list-item
+            class="account"
+            [disabled]="true"
+            *ngSwitchCase="true"
+            (click)="closeDialog()"
+          >
+            <mat-icon mat-list-icon color="primary" svgIcon="fal:building" inline></mat-icon>
+            <p>{{ account.name }}</p>
+          </button>
+          <button
+            mat-list-item
+            class="account"
+            *ngSwitchDefault
+            (click)="changeAccount(account.id)"
+          >
+            <mat-icon mat-list-icon svgIcon="fal:building" inline></mat-icon>
+            <p>{{ account.name }}</p>
+          </button>
+          <mat-divider></mat-divider>
+        </mat-action-list>
+      </div>
+      <div fxLayoutAlign="end end" class="full-width action-buttons">
+        <button mat-stroked-button color="primary" mat-dialog-close>
+          Abbrechen
+        </button>
+      </div>
+    </div>
+    <ng-template #noResult>
+      <p i18n="@@noResult">No result for your search</p>
+    </ng-template>
+  </div>
+</div>

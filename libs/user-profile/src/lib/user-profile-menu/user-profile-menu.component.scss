@@ -1,0 +1,53 @@
+msft-aiala-user-profile-menu {
+  .menu-button {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    background: none;
+    position: relative;
+    box-sizing: border-box;
+    height: 56px;
+    -webkit-tap-highlight-color: transparent;
+    &:focus {
+      border: none;
+      background-color: rgba(0, 0, 0, 0.04);
+      outline: 0;
+    }
+
+    .avatar {
+      height: 40px;
+      width: 40px;
+      margin-right: 20px;
+
+      .profile-picture {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .name {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 110%;
+      min-width: 130px;
+      text-align: left;
+    }
+    .account {
+      margin-top: 3px;
+      font-size: 10px;
+      font-weight: 400;
+    }
+  }
+}
+
+.user-profile-menu {
+  min-width: 220px !important;
+
+  .mat-menu-content:not(:empty) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

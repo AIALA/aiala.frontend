@@ -1,0 +1,80 @@
+<mat-toolbar xpdoDynamicDialogToolbar>
+  <span i18n="@@task">Task</span>
+</mat-toolbar>
+<div class="container" fxLayout="column" fxLayoutAlign="space-between start" fxFlex="1 1 auto">
+  <div class="content" fxFlex="1 1 auto">
+    <p>{{ dialogData.task.name }}</p>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="form" fxLayout="column">
+      <mat-form-field class="w-100">
+        <xpdo-time-input
+          formControlName="start"
+          i18n-placeholder="@@start"
+          placeholder="Start"
+          name="start"
+          [formatAsString]="false"
+          [step]="step"
+        ></xpdo-time-input>
+        <mat-error *ngIf="form.controls['start'].errors">
+          {{form.controls['start'].errors | json}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <xpdo-time-input
+          formControlName="end"
+          i18n-placeholder="@@end"
+          placeholder="End"
+          name="end"
+          [formatAsString]="false"
+          [step]="step"
+        ></xpdo-time-input>
+        <mat-error *ngIf="form.controls['end'].errors">
+          {{form.controls['end'].errors | json}}
+        </mat-error>
+      </mat-form-field>
+      <ng-container *ngIf="form.errors">
+        <mat-error *ngIf="form.errors['overlap']">
+          <span i18n="@@overlappingTasks">Overlapping Tasks</span>
+          <ul [innerHTML]="form.errors['overlap']"></ul>
+        </mat-error>
+        <mat-error *ngIf="form.errors['startAfterEnd']">
+          <span i18n="@@startAfterEnd">Start is after end</span>
+        </mat-error>
+        <mat-error *ngIf="form.errors['earliestEditableTime']">
+          <span i18n="@@earliestEditableTime">A must be at least 5 minutes in the future to be edited</span>
+        </mat-error>
+      </ng-container>
+    </form>
+  </div>
+  <div fxLayoutAlign="end end" fxLayoutGap="10px" class="action-buttons">
+    <button
+      class="remove-button"
+      mat-stroked-button
+      color="warn"
+      (click)="remove()"
+      i18n="@@remove"
+      [disabled]="readonly"
+    >
+      Remove task
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="cancel()"
+      i18n="@@cancel"
+    >
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="apply()"
+      i18n="@@apply"
+      [disabled]="form.invalid || readonly"
+    >
+      Apply
+    </button>
+  </div>
+</div>
+

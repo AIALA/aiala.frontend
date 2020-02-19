@@ -1,0 +1,48 @@
+<mat-toolbar xpdoDynamicDialogToolbar>
+  <span i18n="@@createTemplate">Create template based on this day</span>
+</mat-toolbar>
+<div class="container" fxLayout="column" fxLayoutAlign="space-between start">
+  <div class="content">
+    <form [formGroup]="form" fxLayout="column" fxLayoutAlign="center center">
+      <mat-form-field>
+        <input
+          matInput
+          i18n-placeholder="@@templateName"
+          placeholder="Template name"
+          formControlName="name"
+          required
+        />
+        <mat-error class="single-row">
+          <div *ngFor="let error of form.get('name').getError('name')">
+            {{ error }}
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <msft-aiala-form-error [errors]="errors$ | async" class="max-w-600"></msft-aiala-form-error>
+      <p *ngIf="errors$ | async" i18n="@@fixErrorsOutsideOfDialog">
+        Please adjust the day schedule to fix the issues and try again.
+      </p>
+    </form>
+  </div>
+  <div fxLayoutAlign="end end" fxLayoutGap="10px" class="action-buttons">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="cancel()"
+      i18n="@@cancel"
+    >
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      (click)="save()"
+      [xpdoProgressSpinner]="loading$ | async"
+      i18n="@@create"
+    >
+      Create
+    </button>
+  </div>
+</div>
+

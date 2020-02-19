@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+@import '~@xpdo/components/theming';
+@import './palettes.scss';
+
+@include mat-core();
+
+// Define the theme.
+$app-primary: mat-palette($primary-palette);
+$app-accent: mat-palette($accent-palette);
+$app-theme: mat-light-theme($app-primary, $app-accent);
+@include angular-material-theme($app-theme);
+
+@mixin theme-defaults($theme) {
+  $primary: map-get($theme, primary);
+}
+
+@include theme-defaults($app-theme);
+@include xpdo-theme($app-theme);

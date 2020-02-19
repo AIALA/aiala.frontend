@@ -1,0 +1,181 @@
+<mat-toolbar #toolbar="xpdoToolbar" color="primary" xpdoSidenavToolbar>
+  <div fxFlex>
+    <span i18n="@@settings">Settings</span>
+    <span *ngIf="form.dirty">&nbsp;*</span>
+  </div>
+  <button mat-raised-button (click)="save()" [disabled]="form?.invalid" [xpdoProgressSpinner]="isSaving$ | async">
+    <mat-icon svgIcon="fas:save" inline></mat-icon>
+    <span i18n="@@save">Save</span>
+  </button>
+</mat-toolbar>
+<div
+  class="container"
+  [xpdoSidenavContent]="toolbar"
+  fxLayout="row wrap"
+  fxLayout.lt-sm="column"
+  fxLayoutGap="10px"
+  fxLayoutAlign="flex-start"
+>
+  <ng-template #loadingSpinner>
+    <msft-aiala-loading-spinner></msft-aiala-loading-spinner>
+  </ng-template>
+
+  <form
+    *ngIf="!(loading$ | async); else loadingSpinner"
+    [formGroup]="form"
+    fxFlex="0 1 100%"
+  >
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span i18n="@@generalGroupSettings">General group settings</span>
+            <span *ngIf="form.controls['timeZoneId'].dirty">&nbsp;*</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <msft-aiala-time-zone-selection
+          [appFormGroup]="form"
+          [appFormControlName]="'timeZoneId'"
+        ></msft-aiala-time-zone-selection>
+
+        <mat-form-field>
+          <mat-label i18n="@@defaultLanguage">Default language</mat-label>
+          <mat-select
+            formControlName="tenantCulture"
+          >
+            <mat-option [value]="culture.English">English</mat-option>
+            <mat-option [value]="culture.German">Deutsch</mat-option>
+            <mat-option [value]="culture.French">Français</mat-option>
+            <mat-option [value]="culture.French">Espa&ntilde;ol</mat-option>
+            <mat-option [value]="culture.Italian">Italiano</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span i18n="@@navigate">Navigate</span>
+            <span *ngIf="form.controls['place1Id'].dirty || form.controls['place2Id'].dirty">&nbsp;*</span>
+          </mat-panel-title>
+          <mat-panel-description>
+            <span i18n="@@navigateSettingsDesc">Configure the static place tiles shown on the navigate page in the app</span>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <msft-aiala-place-selector
+          class="w-500 max-w-100p"
+          i18n-placeholder="@@place1"
+          placeholder="Lower left place tile"
+          [appFormGroup]="form"
+          [appFormControlName]="'place1Id'"
+        ></msft-aiala-place-selector>
+        <msft-aiala-place-selector
+          class="w-500 max-w-100p"
+          i18n-placeholder="@@place2"
+          placeholder="Lower right place tile"
+          [appFormGroup]="form"
+          [appFormControlName]="'place2Id'"
+        ></msft-aiala-place-selector>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span i18n="@@emergencyHelpTexts">Emergency help texts</span>
+            <span *ngIf="form.controls['emergencyTextBad'].dirty || form.controls['emergencyTextImproving'].dirty">&nbsp;*</span>
+          </mat-panel-title>
+          <mat-panel-description>
+            <span i18n="@@emergencyHelpTextsDesc">Configure the help texts shown on the emergency screen</span>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-hint>
+          <p class="font-secondary" i18n="@@emergencyLinkHint" [style.marginTop.px]="0">
+            To add a link to the help text, use [text](link).
+            Example: [google](https://google.com).
+          </p>
+        </mat-hint>
+
+        <div fxLayout="row wrap" fxLayoutGap="20px">
+          <mat-form-field fxFlex="0 1 500px">
+            <textarea
+              matInput
+              type="text"
+              i18n-placeholder="@@bad"
+              name="emergencyTextBad"
+              placeholder="Bad"
+              formControlName="emergencyTextBad"
+              rows="6"
+            ></textarea>
+          </mat-form-field>
+          <div fxFlex="0 1 350px" [style.marginBottom.em]="1.25" fxLayout="column" fxLayoutGap="5px">
+            <mat-hint i18n="@@preview">Preview</mat-hint>
+            <mat-card fxFlex="1 1 auto">
+              <mat-card-content>
+                <pre class="normal-font" [innerHtml]="emergencyTextBadPreview$ | async"></pre>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+
+        <div fxLayout="row wrap" fxLayoutGap="20px">
+          <mat-form-field fxFlex="0 1 500px">
+            <textarea
+              matInput
+              type="text"
+              i18n-placeholder="@@improving"
+              name="emergencyTextImproving"
+              placeholder="Improving"
+              formControlName="emergencyTextImproving"
+              rows="6"
+            ></textarea>
+          </mat-form-field>
+          <div fxFlex="0 1 350px" [style.marginBottom.em]="1.25" fxLayout="column" fxLayoutGap="5px">
+            <mat-hint i18n="@@preview">Preview</mat-hint>
+            <mat-card fxFlex="1 1 auto">
+              <mat-card-content>
+                <pre class="normal-font" [innerHtml]="emergencyTextImprovingPreview$ | async"></pre>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span i18n="@@emergencyContacts">Emergency contacts</span>
+            <span *ngIf="form.controls['emergencyContact1Id'].dirty || form.controls['emergencyContact2Id'].dirty">&nbsp;*</span>
+          </mat-panel-title>
+          <mat-panel-description>
+            <span i18n="@@emergencyContactsDesc">Configure who is notified about emergencies</span>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-hint>
+            <p
+              i18n="@@configureEmergencyContactsHint"
+              [style.marginTop.px]="0"
+            >Hint: Selectable contacts are all users as configured by the administrators in the user management.</p>
+        </mat-hint>
+
+        <msft-aiala-user-selector
+          class="w-500 max-w-100p"
+          i18n-placeholder="@@contact1"
+          placeholder="Contact one"
+          [appFormGroup]="form"
+          [appFormControlName]="'emergencyContact1Id'"
+        ></msft-aiala-user-selector>
+        <msft-aiala-user-selector
+          class="w-500 max-w-100p"
+          i18n-placeholder="@@contact2"
+          placeholder="Contact two"
+          [appFormGroup]="form"
+          [appFormControlName]="'emergencyContact2Id'"
+        ></msft-aiala-user-selector>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+</div>

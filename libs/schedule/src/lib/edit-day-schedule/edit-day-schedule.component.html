@@ -1,0 +1,33 @@
+<div class="scroll-container mat-elevation-z1" [formGroup]="form">
+  <div class="day-container" formArrayName="tasks" #dayContainer>
+    <div class="half-hour-container">
+      <div
+        *ngFor="let halfHour of halfHourDefinitions; let isEven = even; let i = index"
+        [style.top]="halfHour.offsetTop"
+        [style.height]="halfHour.height"
+        class="half-hour"
+        [id]="'half-hour-' + i"
+        [ngClass]="{even: isEven}"
+      >
+        <hr class="mid-line">
+        <span class="time">{{halfHour.text}}</span>
+      </div>
+    </div>
+
+    <div class="task-container">
+      <div
+        class="task clickable-container"
+        *ngFor="let task of (taskDefinitions$ | async); let i = index"
+        [style.top]="task.offsetTop"
+        [style.height]="task.height"
+        (click)="openTaskDialog(i)"
+        (keydown.enter)="openTaskDialog(i)"
+        tabindex="0"
+      >
+        <span class="name">{{task.text}}</span>
+        <br>
+        <span class="time">{{task.start | xpdoDuration}} - {{task.end | xpdoDuration}}</span>
+      </div>
+    </div>
+  </div>
+</div>

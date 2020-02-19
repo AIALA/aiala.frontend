@@ -1,0 +1,18 @@
+<mat-form-field [formGroup]="form" class="max-w-100p w-500">
+  <input
+    matInput
+    type="text"
+    [placeholder]="placeholder"
+    class="w-100p"
+    formControlName="place"
+    [matAutocomplete]="auto"
+  >
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayOption">
+    <mat-option
+      *ngFor="let option of options$ | async"
+      [value]="option"
+    >
+      {{option.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

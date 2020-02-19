@@ -1,0 +1,29 @@
+<mat-toolbar xpdoDynamicDialogToolbar i18n="@@changeProfilePicture">Change profile picture</mat-toolbar>
+<div class="container">
+  <div fxLayout="column" fxFlex>
+    <div class="crop-area" fxFlex fxLayoutAlign="center center">
+      <xpdo-cropper (cropped)="croppedImage($event)" [compressedBlob]="data.compressedBlob"></xpdo-cropper>
+    </div>
+
+    <div
+      fxLayout="row"
+      fxLayoutGap="10px"
+      fxLayoutAlign="end end"
+      class="action-buttons"
+    >
+      <button mat-stroked-button color="primary" mat-dialog-close i18n="@@cancel">
+        Cancel
+      </button>
+      <button
+        mat-raised-button
+        [xpdoProgressSpinner]="isUploadingProfilePicture$ | async"
+        color="primary"
+        [disabled]="!image"
+        (click)="uploadPicture(image)"
+        i18n="@@save"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>

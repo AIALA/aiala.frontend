@@ -1,0 +1,74 @@
+@import '../variables';
+
+:host {
+  $day-max-width: 150px;
+
+  .container {
+    padding: 10px;
+
+    .buttons button {
+      margin-bottom: 10px;
+    }
+
+    .calendar-container {
+      max-width: $day-max-width * 7;
+
+      &.selection-calendar .day.temporary-day {
+        cursor: not-allowed;
+      }
+    }
+
+    .week {
+      @media screen and (min-width: 599px) {
+        &:not(:last-child) {
+          border-bottom: 1px solid $gray-30;
+        }
+      }
+    }
+
+    .day {
+      @media screen and (min-width: 599px) {
+        max-width: $day-max-width;
+        display: inline-block;
+        height: 150px;
+
+        border-right-width: 1px;
+
+        &:last-child {
+          border-right-width: 0;
+        }
+      }
+      @media screen and (max-width: 598px) {
+        border-bottom-width: 1px;
+      }
+
+      border-width: 0;
+      border-style: solid;
+      border-color: $gray-30;
+      padding: 15px;
+
+      .unscheduled-text,
+      .day-header {
+        color: $gray-100;
+      }
+      &.today .day-header {
+        font-weight: bolder;
+        color: black;
+      }
+
+      .day-content {
+        font-size: 1.15rem;
+        text-align: center;
+      }
+
+      &:nth-last-child(2),
+      &:nth-last-child(1) {
+        background-color: $gray-20;
+      }
+
+      &:hover {
+        background-color: $gray-30;
+      }
+    }
+  }
+}

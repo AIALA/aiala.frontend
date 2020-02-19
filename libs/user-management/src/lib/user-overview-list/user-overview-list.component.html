@@ -1,0 +1,118 @@
+<table mat-table [dataSource]="users" class="mat-elevation-z1">
+  <ng-container matColumnDef="picture">
+    <mat-header-cell mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let user">
+      <msft-aiala-thumbnail class="user-picture" [source]="user.pictureUrl" [pictureType]="pictureType"></msft-aiala-thumbnail>
+      <div
+        *ngIf="!user.pictureUrl"
+        class="user-picture"
+        fxLayoutAlign="center center"
+      >
+        <mat-icon svgIcon="fas:user"></mat-icon>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell mat-header-cell *matHeaderCellDef i18n="@@name"
+      >Name</mat-header-cell
+    >
+    <mat-cell mat-cell *matCellDef="let user">
+      <p>{{ user.firstname }} {{ user.lastname }}</p>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell mat-header-cell *matHeaderCellDef i18n="@@email"
+      >Email</mat-header-cell
+    >
+    <mat-cell
+      mat-cell
+      *matCellDef="let user"
+      fxLayout="column"
+      fxLayoutAlign="start start"
+    >
+      <p>{{ user.email }}</p>
+      <p class="invitation-status" [ngSwitch]="user.invitationStatus">
+        <span *ngSwitchCase="invitationStatus.NotInvited" i18n="@@notInvited"
+          >not invited</span
+        >
+        <span *ngSwitchCase="invitationStatus.Invited" i18n="@@invited"
+          >invited</span
+        >
+        <span *ngSwitchCase="invitationStatus.Expired" i18n="@@expired"
+          >expired</span
+        >
+        <span *ngSwitchCase="invitationStatus.Declined" i18n="@@declined"
+          >declined</span
+        >
+        <span *ngSwitchCase="invitationStatus.Accepted" i18n="@@accepted"
+          >accepted</span
+        >
+      </p>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell mat-header-cell *matHeaderCellDef i18n="@@status"
+      >Status</mat-header-cell
+    >
+    <mat-cell mat-cell *matCellDef="let user">
+      <div fxLayoutAlign="start center">
+        <ng-container [ngSwitch]="user.enabled">
+          <p class="user-status enabled" *ngSwitchCase="true" i18n="@@enabled">
+            Enabled
+          </p>
+          <p
+            class="user-status disabled"
+            *ngSwitchCase="false"
+            i18n="@@disabled"
+          >
+            Disabled
+          </p>
+        </ng-container>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="lastLogin">
+    <mat-header-cell mat-header-cell *matHeaderCellDef i18n="@@lastLoginTitle"
+      >Last Login</mat-header-cell
+    >
+    <mat-cell mat-cell *matCellDef="let user">
+      {{ user.lastLogin | date: 'short' }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="permissions">
+    <mat-header-cell mat-header-cell *matHeaderCellDef i18n="@@permissions">Permissions</mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let user">
+      <div fxLayout="row" fxLayoutGap="10px">
+        <p *ngFor="let permission of user.permissionGroups" class="user-status permission">{{ permission }}</p>
+        <p
+          *ngIf="user.permissionGroups && user.permissionGroups.length === 0"
+          class="user-status emergency-contact"
+          i18n="@@emergencyContact"
+        >Emergency Contact (no login allowed)</p>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let user">
+      <msft-aiala-user-overview-menu
+        [user]="user"
+        xpdoClickStopPropagation
+      ></msft-aiala-user-overview-menu>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+  <mat-row
+    matRipple
+    mat-row
+    *matRowDef="let row; columns: columns"
+    [routerLink]="['../' + row.id]"
+  ></mat-row>
+</table>

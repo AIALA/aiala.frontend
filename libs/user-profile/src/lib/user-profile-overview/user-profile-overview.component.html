@@ -1,0 +1,52 @@
+<ng-container *ngIf="(profile$ | async) as profile">
+  <mat-toolbar color="primary" #toolbar="xpdoToolbar" xpdoSidenavToolbar>
+    <span fxFlex i18n="@@profile">Profile -- Temporary</span>
+    <button mat-icon-button (click)="openUpdateProfileDialog()">
+      <mat-icon svgIcon="fas:pencil"></mat-icon>
+    </button>
+  </mat-toolbar>
+  <div [xpdoSidenavContent]="toolbar">
+    <mat-toolbar class="profile-header" color="primary">
+      <div
+        fxFlex="100"
+        fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="16px"
+      >
+        <msft-aiala-profile-picture
+          fxLayoutAlign.lt-sm="center center"
+        ></msft-aiala-profile-picture>
+        <div fxLayout="column">
+          <h1 class="name">{{ profile?.firstname }} {{ profile?.lastname }}</h1>
+          <p class="email">{{ profile?.email }}</p>
+          <div fxFlex></div>
+          <p class="pers-id">Pers-ID: 1234 1234 12330</p>
+        </div>
+      </div>
+    </mat-toolbar>
+    <div class="profile-container" fxLayout="column" fxLayoutGap="50px">
+      <div fxLayout="row wrap">
+        <div class="profile-information">
+          <p class="profile-information-title">Telefon</p>
+          <p class="profile-information-value">+41 79 000 00 00</p>
+        </div>
+        <div class="profile-information">
+          <p class="profile-information-title">Geburtsdatum</p>
+          <p class="profile-information-value">14.10.1979</p>
+        </div>
+        <div class="profile-information">
+          <p class="profile-information-title">Wohnadresse</p>
+          <p class="profile-information-value">Poststrasse 14</p>
+          <p class="profile-information-value">6000 Luzern</p>
+        </div>
+      </div>
+      <div>
+        <mat-tab-group>
+          <mat-tab label="Rechnungen"></mat-tab>
+          <mat-tab label="Meine Produkte"></mat-tab>
+          <mat-tab label="Meine Bestellungen"></mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</ng-container>

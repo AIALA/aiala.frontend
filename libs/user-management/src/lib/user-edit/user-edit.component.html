@@ -1,0 +1,44 @@
+<mat-toolbar xpdoDynamicDialogToolbar>
+  <span i18n="@@editUser">Edit user</span>
+</mat-toolbar>
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading$ | async" color="accent"></mat-progress-bar>
+<div class="container" fxLayout="column" fxLayoutAlign="space-between start">
+  <div class="content">
+    <form [formGroup]="form" fxLayout="column" fxLayoutAlign="center center">
+      <mat-form-field>
+        <input matInput i18n-placeholder="@@firstname" placeholder="First name" formControlName="firstname" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput i18n-placeholder="@@lastname" placeholder="Last name" formControlName="lastname" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput i18n-placeholder="@@email" placeholder="Email" formControlName="email" />
+        <mat-error class="single-row">
+          <div *ngFor="let error of form.get('email').getError('badRequests')">
+            {{ error }}
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  <div fxLayoutAlign="end end" fxLayoutGap="10px" class="action-buttons">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="cancel()"
+      i18n="@@cancel"
+    >
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.pristine || form.invalid"
+      (click)="save()"
+      [xpdoProgressSpinner]="isSaving$ | async"
+      i18n="@@save"
+    >
+      Save
+    </button>
+  </div>
+</div>

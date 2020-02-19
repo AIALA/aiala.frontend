@@ -1,0 +1,75 @@
+{
+  "npmScope": "msft-aiala",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "shared": {
+      "tags": []
+    },
+    "public": {
+      "tags": []
+    },
+    "portal": {
+      "tags": []
+    },
+    "register": {
+      "tags": []
+    },
+    "intro": {
+      "tags": []
+    },
+    "tasks": {
+      "tags": []
+    },
+    "error": {
+      "tags": []
+    },
+    "picture": {
+      "tags": []
+    },
+    "schedule": {
+      "tags": []
+    },
+    "invitation": {
+      "tags": []
+    },
+    "user-profile": {
+      "tags": []
+    },
+    "password-reset": {
+      "tags": []
+    },
+    "settings": {
+      "tags": []
+    },
+    "user-controls": {
+      "tags": []
+    },
+    "places": {
+      "tags": []
+    },
+    "user-management": {
+      "tags": []
+    },
+    "gallery": {
+      "tags": []
+    },
+    "documents": {
+      "tags": []
+    },
+    "codes": {
+      "tags": []
+    },
+    "reports": {
+      "tags": []
+    },
+    "azure": {
+      "tags": []
+    }
+  }
+}

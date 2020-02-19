@@ -1,0 +1,16 @@
+:host() {
+  width: 400px;
+  min-width: 280px;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
+
+  mat-card {
+    transition: all 500ms ease-in-out;
+  }
+
+  mat-form-field {
+    display: block;
+    box-sizing: border-box;
+  }
+}

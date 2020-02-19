@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE translationbundle [
+<!ELEMENT translationbundle (translation)*>
+<!ATTLIST translationbundle lang CDATA #REQUIRED>
+
+<!ELEMENT translation (#PCDATA|ph)*>
+<!ATTLIST translation id CDATA #REQUIRED>
+<!ATTLIST translation desc CDATA #IMPLIED>
+<!ATTLIST translation meaning CDATA #IMPLIED>
+<!ATTLIST translation xml:space (default|preserve) "default">
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<translationbundle lang="en-us">
+  <translation id="next">
+        Next
+      </translation>
+  <translation id="loading">Loading...</translation>
+  <translation id="no">
+      No
+    </translation>
+  <translation id="yes">
+      Yes
+    </translation>
+  <translation id="discardUnsavedChanges">Discard all unsaved changes?</translation>
+  <translation id="unsavedChanges">Unsaved changes</translation>
+  <translation id="selectLanguage">Select language</translation>
+  <translation id="firstname">First name</translation>
+  <translation id="lastname">Last name</translation>
+  <translation id="email">Email</translation>
+  <translation id="password">Password</translation>
+  <translation id="passwordMinLength">
+            Password must be at least 8 characters long
+          </translation>
+  <translation id="passwordLowerCase">
+            Password requires at least one lower case letter
+          </translation>
+  <translation id="passwordUpperCase">
+            Password requires at least one upper case letter
+          </translation>
+  <translation id="passwordNumbers">
+            Password requires at least one number
+          </translation>
+  <translation id="passwordSpecialCharacter">
+            Password requires at least one special character
+          </translation>
+  <translation id="passwordConfirmation">Confirm password</translation>
+  <translation id="passwordNotEqual">
+            Passwords have to match
+          </translation>
+  <translation id="back">Back</translation>
+  <translation id="register">
+        Register
+      </translation>
+  <translation id="registrationTitle">Registration</translation>
+  <translation id="registrationComplete">
+        Congratulations, you have successfully registered yourself on the AIALA platform.
+      </translation>
+  <translation id="confirmationLink">You will receive a confirmation link via email on:</translation>
+  <translation id="confirmRegistrationTitle">Confirm Registration</translation>
+  <translation id="confirmingRegistration">Registration is being confirmed...</translation>
+  <translation id="confirmRegistrationErrorTitle">Registration unsucessful</translation>
+  <translation id="confirmRegistrationError">
+      The registration could not be completed.
+    </translation>
+  <translation id="confirmRegistrationSuccessTitle">Registration completed</translation>
+  <translation id="confirmRegistrationSuccess">
+        Thank you for confirming your registration.
+        Your account is now active and you can log in.
+      </translation>
+  <translation id="gotoLogin">
+      To the login
+    </translation>
+  <translation id="invitationDeclined">Invitation declined</translation>
+  <translation id="invitationTitle">Invitation</translation>
+  <translation id="receiver">To</translation>
+  <translation id="defaultInvitationMessage">
+            Would you like to accept the invitation?
+          </translation>
+  <translation id="decline">
+      Decline
+    </translation>
+  <translation id="accept">
+      Accept
+    </translation>
+  <translation id="newAccount">
+        New account
+      </translation>
+  <translation id="existingAccount">
+        Existing account
+      </translation>
+  <translation id="invitationRegisterTitle">Create account</translation>
+  <translation id="passwordResetTitle">Reset password</translation>
+  <translation id="requestPasswordReset">
+          To reset your password, please enter the email address with which you log in.
+        </translation>
+  <translation id="emailSentOn">We have sent an email to: </translation>
+  <translation id="followInstructionsInMail">
+          Please follow the instructions in that email.
+        </translation>
+  <translation id="reset">
+      Reset
+    </translation>
+  <translation id="resetPassword">
+          Please enter your new password.
+        </translation>
+  <translation id="passwordReset">Your password has been reset.</translation>
+  <translation id="8298333184054476827" desc="@registrationTitle">Registration</translation>
+</translationbundle>

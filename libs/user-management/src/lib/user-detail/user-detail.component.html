@@ -1,0 +1,127 @@
+<mat-toolbar
+  #toolbar="xpdoToolbar"
+  color="primary"
+  xpdoSidenavToolbar="child"
+  [fixed]="true"
+>
+  <div fxFlex i18n="@@user">User</div>
+  <button mat-icon-button (click)="edit()">
+    <mat-icon svgIcon="far:pencil"></mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    *ngIf="canEditPermissionGroup$ | async"
+  >
+    <mat-icon svgIcon="fas:ellipsis-v"></mat-icon>
+  </button>
+  <mat-menu #menu>
+    <button mat-menu-item (click)="editPermissionGroup()">
+      <mat-icon svgIcon="far:key"></mat-icon>
+      <span i18n="@@editPermissionGroup">Permissions</span>
+    </button>
+    <button mat-menu-item *ngIf="(user$ | async)?.enabled" (click)="disable()">
+      <mat-icon svgIcon="far:lock" class="mat-menu-icon"></mat-icon>
+      <span i18n="@@deactivate">Deactivate</span>
+    </button>
+    <button mat-menu-item *ngIf="!(user$ | async)?.enabled" (click)="enable()">
+      <mat-icon svgIcon="far:unlock" class="mat-menu-icon"></mat-icon>
+      <span i18n="@@activate">Activate</span>
+    </button>
+    <button mat-menu-item *ngIf="!(user$ | async)?.enabled" (click)="delete()">
+      <mat-icon svgIcon="far:trash" class="mat-menu-icon"></mat-icon>
+      <span i18n="@@delete">Delete</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<div [xpdoSidenavContent]="toolbar">
+  <mat-toolbar class="user-header" color="primary">
+    <div
+      class="user-information"
+      fxLayout="row"
+      fxLayout.lt-sm="column"
+      fxLayoutGap="16px"
+    >
+      <div fxLayoutAlign="start start" fxLayoutAlign.lt-sm="center center">
+        <msft-aiala-thumbnail
+          class="user-avatar"
+          [source]="(user$ | async)?.pictureUrl"
+          [editable]="true"
+          [pictureType]="pictureType"
+          (pictureTaken)="savePicture($event)"
+        ></msft-aiala-thumbnail>
+      </div>
+      <div fxFlex>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h1 class="name">
+            {{ (user$ | async)?.firstname }} {{ (user$ | async)?.lastname }}
+          </h1>
+          <div class="user-status" [ngSwitch]="(user$ | async)?.enabled">
+            <p class="enabled" *ngSwitchCase="true" i18n="@@enabled">Enabled</p>
+            <p class="disabled" *ngSwitchCase="false" i18n="@@disabled">
+              Disabled
+            </p>
+          </div>
+        </div>
+        <div fxLayoutAlign="space-between start" fxLayout="column">
+          <div
+            fxLayout="row"
+            fxLayoutGap="10px"
+            fxLayoutAlign="center center"
+            fxLayout.lt-sm="column"
+            fxLayoutAlign.lt-sm="start start"
+          >
+            <p class="email">{{ (user$ | async)?.email }}</p>
+            <ng-container *ngIf="(user$ | async)?.invitationStatus as status">
+              <button
+                mat-raised-button
+                *ngIf="status !== invitationStatus.Accepted"
+                (click)="invite()"
+              >
+                <mat-icon
+                  svgIcon="far:envelope"
+                  style="margin-right:10px;"
+                  inline
+                ></mat-icon>
+                <span
+                  i18n="@@resendInvitation"
+                  *ngIf="
+                    status === invitationStatus.Invited ||
+                    status === invitationStatus.Expired ||
+                    status === invitationStatus.Declined
+                  "
+                  >Resend invitation</span
+                >
+                <span
+                  i18n="@@sendInvitation"
+                  *ngIf="status === invitationStatus.NotInvited"
+                  >Send invitation</span
+                >
+              </button>
+            </ng-container>
+          </div>
+        </div>
+        <div [style.marginTop.px]="15">
+          <msft-aiala-permission-group> </msft-aiala-permission-group>
+        </div>
+        <div fxLayoutAlign="end end">
+          <div
+            class="user-last-login"
+            *ngIf="!(user$ | async) || (user$ | async)?.enabled"
+          >
+            <p *ngIf="(user$ | async)?.lastLogin">
+              <span i18n="@@lastLogin">last logged in at</span>
+              {{ (user$ | async).lastLogin | date: 'short' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>
+  <mat-progress-bar
+    mode="indeterminate"
+    *ngIf="isLoading$ | async"
+    color="accent"
+  ></mat-progress-bar>
+  <div class="container" fxLayoutGap="10px" fxLayout="column"></div>
+</div>

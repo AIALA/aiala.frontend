@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content fxLayoutAlign="start start">
+    <mat-form-field [formGroup]="tagFormGroup" class="w-350 max-w-100p">
+      <mat-hint msft-aiala-confidence-hint [confidence]="tag?.confidence"></mat-hint>
+
+      <input
+        type="text"
+        matInput
+        formControlName="name"
+        name="name"
+        placeholder="Name"
+        required>
+    </mat-form-field>
+
+    <div class="tag-menu-button">
+      <button mat-icon-button [matMenuTriggerFor]="tagMenu" xpdoClickStopPropagation>
+        <mat-icon svgIcon="fas:ellipsis-v"></mat-icon>
+      </button>
+    </div>
+
+    <mat-menu #tagMenu>
+      <button mat-menu-item (click)="delete.next()">
+        <mat-icon svgIcon="far:trash-alt"></mat-icon>
+        <span i18n="@@delete">Delete</span>
+      </button>
+    </mat-menu>
+  </mat-card-content>
+</mat-card>
+

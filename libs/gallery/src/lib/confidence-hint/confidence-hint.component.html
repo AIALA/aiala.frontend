@@ -1,0 +1,6 @@
+<span *ngIf="confidence !== null && confidence !== 1; else humanConfidenceTag">
+  <span i18n="@@tagConfidence">AI Confidence:</span>&nbsp;<span>{{ confidence.toString().substring(0, 4) }} / 1</span>
+</span>
+<ng-template #humanConfidenceTag>
+  <span i18n="@@manualEdit">Manual edit</span>
+</ng-template>

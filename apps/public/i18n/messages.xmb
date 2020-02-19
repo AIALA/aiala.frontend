@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="loading"><source>../../libs/shared/src/lib/loading-spinner/loading-spinner.component.html:3</source>Loading...</msg>
+  <msg id="no"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:14,16</source>
+      No
+    </msg>
+  <msg id="yes"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:22,24</source>
+      Yes
+    </msg>
+  <msg id="discardUnsavedChanges"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:29</source>Discard all unsaved changes?</msg>
+  <msg id="unsavedChanges"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:33</source>Unsaved changes</msg>
+  <msg id="reloadBecauseOfUnauthorized"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:37,40</source>
+    Your login expired. This may have different cause, most likely inactivity.
+    Until the page is reloaded, you won&apos;t be able to access the app. Do you want to reload the page?
+  </msg>
+  <msg id="loginExpired"><source>../../libs/shared/src/lib/confirm-dialog/confirm-dialog.component.html:44</source>Login expired</msg>
+  <msg id="recommended"><source>../../libs/codes/src/lib/time-zone-selection/time-zone-selection.component.html:9</source>Recommended</msg>
+  <msg id="timeZone"><source>../../libs/codes/src/lib/time-zone-selection/time-zone-selection.component.html:5</source>Time zone</msg>
+  <msg id="registrationTitle"><source>../../libs/register/src/lib/steps/language/language.component.html:2</source><source>../../libs/register/src/lib/steps/complete/complete.component.html:2</source>Registration</msg>
+  <msg id="selectLanguage"><source>../../libs/register/src/lib/steps/language/language.component.html:5</source>Select language</msg>
+  <msg id="next"><source>../../libs/register/src/lib/steps/language/language.component.html:34,36</source>
+        Next
+      </msg>
+  <msg id="8298333184054476827" desc="@registrationTitle"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:2</source>Registration</msg>
+  <msg id="firstname"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:12</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:8</source>First name</msg>
+  <msg id="lastname"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:23</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:11</source>Last name</msg>
+  <msg id="email"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:40</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:14</source><source>../../libs/password-reset/src/lib/request/request.component.html:19</source>Email</msg>
+  <msg id="password"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:48</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:22</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:20</source>Password</msg>
+  <msg id="passwordMinLength"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:50,52</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:27,29</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:25,27</source>
+              Password must be at least 8 characters long
+            </msg>
+  <msg id="passwordLowerCase"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:53,55</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:30,32</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:28,30</source>
+              Password requires at least one lower case letter
+            </msg>
+  <msg id="passwordUpperCase"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:56,58</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:33,35</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:31,33</source>
+              Password requires at least one upper case letter
+            </msg>
+  <msg id="passwordNumbers"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:59,61</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:36,38</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:34,36</source>
+              Password requires at least one number
+            </msg>
+  <msg id="passwordSpecialCharacter"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:62,64</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:39,41</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:37,39</source>
+              Password requires at least one special character
+            </msg>
+  <msg id="passwordConfirmation"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:70</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:55</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:55</source>Confirm password</msg>
+  <msg id="passwordNotEqual"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:71,73</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:64,66</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:64,66</source>
+            Passwords must match
+          </msg>
+  <msg id="back"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:80</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:77</source>Back</msg>
+  <msg id="register"><source>../../libs/register/src/lib/steps/account-details/account-details.component.html:88,90</source><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:85,87</source>
+        Register
+      </msg>
+  <msg id="registrationComplete"><source>../../libs/register/src/lib/steps/complete/complete.component.html:5,7</source>
+        Congratulations, you have successfully registered yourself on the AIALA platform.
+      </msg>
+  <msg id="confirmationLink"><source>../../libs/register/src/lib/steps/complete/complete.component.html:10</source>You will receive a confirmation link via email on:</msg>
+  <msg id="confirmRegistrationTitle"><source>../../libs/register/src/lib/steps/confirm/confirm-registration/confirm-registration.component.html:2</source>Confirm Registration</msg>
+  <msg id="confirmingRegistration"><source>../../libs/register/src/lib/steps/confirm/confirm-registration/confirm-registration.component.html:5</source>Registration is being confirmed...</msg>
+  <msg id="confirmRegistrationErrorTitle"><source>../../libs/register/src/lib/steps/confirm/confirm-registration-error/confirm-registration-error.component.html:2</source>Registration unsucessful</msg>
+  <msg id="confirmRegistrationError"><source>../../libs/register/src/lib/steps/confirm/confirm-registration-error/confirm-registration-error.component.html:4,6</source>
+      The registration could not be completed.
+    </msg>
+  <msg id="confirmRegistrationSuccessTitle"><source>../../libs/register/src/lib/steps/confirm/confirm-registration-success/confirm-registration-success.component.html:2</source>Registration completed</msg>
+  <msg id="confirmRegistrationSuccess"><source>../../libs/register/src/lib/steps/confirm/confirm-registration-success/confirm-registration-success.component.html:5,8</source>
+        Thank you for confirming your registration.
+        Your account is now active and you can log in.
+      </msg>
+  <msg id="gotoLogin"><source>../../libs/register/src/lib/steps/confirm/confirm-registration-success/confirm-registration-success.component.html:12,14</source>
+      To the login
+    </msg>
+  <msg id="invitationDeclined"><source>../../libs/invitation/src/lib/invitation-declined/invitation-declined.component.html:1</source>Invitation declined</msg>
+  <msg id="invitationTitle"><source>../../libs/invitation/src/lib/invitation-request/invitation-request.component.html:2</source>Invitation</msg>
+  <msg id="receiver"><source>../../libs/invitation/src/lib/invitation-request/invitation-request.component.html:29</source>To</msg>
+  <msg id="defaultInvitationMessage"><source>../../libs/invitation/src/lib/invitation-request/invitation-request.component.html:39,41</source>
+            Would you like to accept the invitation?
+          </msg>
+  <msg id="decline"><source>../../libs/invitation/src/lib/invitation-request/invitation-request.component.html:54,56</source>
+      Decline
+    </msg>
+  <msg id="accept"><source>../../libs/invitation/src/lib/invitation-request/invitation-request.component.html:62,64</source>
+      Accept
+    </msg>
+  <msg id="newAccount"><source>../../libs/invitation/src/lib/invitation-request/invitation-request.component.html:66,68</source>
+        New account
+      </msg>
+  <msg id="existingAccount"><source>../../libs/invitation/src/lib/invitation-request/invitation-request.component.html:73,75</source>
+        Existing account
+      </msg>
+  <msg id="invitationRegisterTitle"><source>../../libs/invitation/src/lib/invitation-register/invitation-register.component.html:3</source>Create account</msg>
+  <msg id="passwordResetTitle"><source>../../libs/password-reset/src/lib/request/request.component.html:3</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:3</source>Reset password</msg>
+  <msg id="requestPasswordReset"><source>../../libs/password-reset/src/lib/request/request.component.html:8,10</source>
+          To reset your password, please enter the email address with which you log in.
+        </msg>
+  <msg id="emailSentOn"><source>../../libs/password-reset/src/lib/request/request.component.html:31</source>We have sent an email to: </msg>
+  <msg id="followInstructionsInMail"><source>../../libs/password-reset/src/lib/request/request.component.html:35,37</source>
+          Please follow the instructions in that email.
+        </msg>
+  <msg id="reset"><source>../../libs/password-reset/src/lib/request/request.component.html:54,56</source><source>../../libs/password-reset/src/lib/complete/complete.component.html:98,100</source>
+      Reset
+    </msg>
+  <msg id="resetPassword"><source>../../libs/password-reset/src/lib/complete/complete.component.html:8,10</source>
+          Please enter your new password.
+        </msg>
+  <msg id="passwordReset"><source>../../libs/password-reset/src/lib/complete/complete.component.html:81</source>Your password has been reset.</msg>
+</messagebundle>

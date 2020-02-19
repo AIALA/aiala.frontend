@@ -1,0 +1,30 @@
+:host() {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+
+  .toolbar-logo {
+    max-height: 40px;
+  }
+
+  .header-image {
+    height: 35vh;
+    width: 100%;
+    background-image: url('/assets/images/header-bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+
+  .main-route-container {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 75vh;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+  }
+}

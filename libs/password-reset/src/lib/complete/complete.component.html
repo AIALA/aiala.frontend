@@ -1,0 +1,102 @@
+<mat-card>
+  <mat-card-title i18n="@@passwordResetTitle"
+    >Reset password</mat-card-title
+  >
+  <mat-card-content>
+    <div @complete *ngIf="!(isCompleted$ | async); else passwordReset">
+      <section>
+        <p i18n="@@resetPassword">
+          Please enter your new password.
+        </p>
+      </section>
+      <section>
+        <form [formGroup]="form">
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              i18n-placeholder="@@password"
+              name="password"
+              placeholder="Password"
+              formControlName="password"
+              required
+            />
+            <mat-error class="single-row">
+              <div *ngIf="form.get('password').hasError('minLength')" i18n="@@passwordMinLength">
+                Password must be at least 8 characters long
+              </div>
+              <div *ngIf="form.get('password').hasError('lowerCase')" i18n="@@passwordLowerCase">
+                Password requires at least one lower case letter
+              </div>
+              <div *ngIf="form.get('password').hasError('upperCase')" i18n="@@passwordUpperCase">
+                Password requires at least one upper case letter
+              </div>
+              <div *ngIf="form.get('password').hasError('numbers')" i18n="@@passwordNumbers">
+                Password requires at least one number
+              </div>
+              <div *ngIf="form.get('password').hasError('specialCharacter')" i18n="@@passwordSpecialCharacter">
+                Password requires at least one special character
+              </div>
+              <div
+                *ngFor="
+                  let error of form.get('password').getError('badRequests')
+                "
+              >
+                {{ error }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              i18n-placeholder="@@passwordConfirmation"
+              name="passwordConfirmation"
+              placeholder="Confirm password"
+              formControlName="passwordConfirmation"
+              required
+              [errorStateMatcher]="passwordEqualMatcher"
+            />
+            <mat-error class="single-row">
+              <div
+                *ngIf="form.hasError('passwordNotEqual')"
+                i18n="@@passwordNotEqual"
+              >
+                Passwords have to match
+              </div>
+              <div
+                *ngFor="
+                  let error of form.get('password').getError('badRequests')
+                "
+              >
+                {{ error }}
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </form>
+      </section>
+    </div>
+    <ng-template #passwordReset>
+      <section @passwordReset>
+        <p i18n="@@passwordReset">Your password has been reset.</p>
+      </section>
+    </ng-template>
+  </mat-card-content>
+  <mat-card-actions
+    @complete
+    *ngIf="!(isCompleted$ | async)"
+    fxLayout="row"
+    fxLayoutAlign="end center"
+  >
+    <button
+      mat-raised-button
+      [xpdoProgressSpinner]="loading$ | async"
+      (click)="sendComplete(password.value, passwordConfirmation.value)"
+      color="primary"
+      [disabled]="form.invalid"
+      i18n="@@reset"
+    >
+      Reset
+    </button>
+  </mat-card-actions>
+</mat-card>

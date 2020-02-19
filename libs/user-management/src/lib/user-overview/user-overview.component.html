@@ -1,0 +1,52 @@
+<mat-toolbar #toolbar="xpdoToolbar" color="primary" xpdoSidenavToolbar>
+  <div fxFlex i18n="@@userManagement">User management</div>
+  <xpdo-search-toolbar
+    i18n-placeholder="@@searchUser"
+    placeholder="Search user"
+    [formControl]="filter"
+  ></xpdo-search-toolbar>
+  <div *ngIf="!(isMobile$ | async)" [style.marginLeft.px]="10">
+    <button
+      mat-icon-button
+      *ngIf="(showAsCards$ | async)"
+      (click)="mode$.next(modes.Table)"
+    >
+      <mat-icon svgIcon="far:list-ul"></mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      *ngIf="!(showAsCards$ | async)"
+      (click)="mode$.next(modes.Card)"
+    >
+      <mat-icon svgIcon="far:th"></mat-icon>
+    </button>
+  </div>
+  <button mat-icon-button (click)="create()">
+    <mat-icon svgIcon="far:user-plus"></mat-icon>
+  </button>
+</mat-toolbar>
+<div
+  class="container"
+  [xpdoSidenavContent]="toolbar"
+  fxLayout="row wrap"
+  fxLayout.lt-sm="column"
+  fxLayoutGap="10px"
+  fxLayoutAlign="flex-start"
+  [@listAnimation]="(users$ | async).length"
+>
+  <ng-container *ngIf="(showAsCards$ | async)">
+    <ng-container *ngFor="let user of (users$ | async)">
+      <msft-aiala-user-overview-item
+        [user]="user"
+        fxFlex.gt-md="0 0 calc(33.3% - 10px)"
+        fxFlex.gt-sm="0 0 calc(50% - 10px)"
+        fxFlex.gt-xs="0 0 calc(50% - 10px)"
+      >
+      </msft-aiala-user-overview-item>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="!(showAsCards$ | async)">
+    <msft-aiala-user-overview-list [users]="users$ | async">
+    </msft-aiala-user-overview-list>
+  </ng-container>
+</div>

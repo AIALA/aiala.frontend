@@ -1,0 +1,20 @@
+<mat-card class="mat-elevation-z1">
+  <div fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxLayoutAlign="start start" fxFlex="1 1 auto" fxLayout="column" class="text-container">
+      <h5 class="template-name">{{ dayTemplate.name }}</h5>
+      <span>
+        <span i18n="@@dayName">Day name</span>
+        <span>:&nbsp;{{ dayTemplate.dayName }}</span>
+      </span>
+      <span>
+        <span>{{ dayTemplate.tasks.length }}&nbsp;</span>
+        <span i18n="@@tasks">tasks</span>
+      </span>
+    </div>
+    <div fxLayoutAlign="start end" fxFlex="0 0 auto" *ngIf="menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu" xpdoClickStopPropagation>
+        <mat-icon svgIcon="fas:ellipsis-v"></mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-card>

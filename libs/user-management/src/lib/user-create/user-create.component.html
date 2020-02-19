@@ -1,0 +1,69 @@
+<mat-toolbar xpdoDynamicDialogToolbar>
+  <span i18n="@@newUser">New user</span>
+</mat-toolbar>
+<div class="container" fxLayout="column" fxLayoutAlign="space-between start">
+  <div class="content">
+    <form [formGroup]="form" fxLayout="column" fxLayoutAlign="center center">
+      <mat-form-field>
+        <input
+          matInput
+          i18n-placeholder="@@firstname"
+          placeholder="Vorname"
+          formControlName="firstname"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          i18n-placeholder="@@lastname"
+          placeholder="Nachname"
+          formControlName="lastname"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          i18n-placeholder="@@email"
+          placeholder="E-Mail"
+          formControlName="email"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select
+          formControlName="role"
+          required
+          i18n-placeholder="@@role"
+          placeholder="Role"
+        >
+          <mat-option [value]="roles.EmergencyContact" i18n="@@emergencyContact">Emergency contact (no login)</mat-option>
+          <mat-option [value]="roles.WebAppUser" i18n="@@emergencyContact">Web app user</mat-option>
+          <mat-option [value]="roles.MobileAppUser" i18n="@@emergencyContact">Mobile app user</mat-option>
+          <mat-option [value]="roles.Administrator" i18n="@@emergencyContact">Administrator</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div fxLayoutAlign="end end" fxLayoutGap="10px" class="action-buttons">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="cancel()"
+      i18n="@@cancel"
+    >
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      (click)="create()"
+      [xpdoProgressSpinner]="isCreating$ | async"
+      i18n="@@create"
+    >
+      Create
+    </button>
+  </div>
+</div>

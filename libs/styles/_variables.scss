@@ -1,0 +1,23 @@
+@import './theme';
+
+/* === Colors */
+$app-success: #008466;
+
+$status-color: (
+  enabled: $app-success,
+  disabled: gray,
+);
+
+$gray-10: #FAFAFA;
+$gray-20: #F3F3F3;
+$gray-30: #ECECEC;
+///
+$gray-50: #D0D0D0;
+///
+$gray-80: #AAAAAA;
+///
+$gray-100: #888888;
+/* !== Colors */
+
+/* === Layout */
+$editor-toolbar-font-size: 16px;
